@@ -1,9 +1,18 @@
-console.log("executed");
+// Architectural pattern: MVC, Dependency Injection, frontend: MVP
+// => backend ning suyagi. Yani backendni malumotlar oqimini tartibga soladigon vosita.
 
-import moment from "moment";
+// Design pattern: Middleware, Decotar
+// => backend ni malum bir bolaklarini strukturasini yechishda yordam beradi.
 
-const currentTime = moment().format("YY MM DD");
-console.log(currentTime);
+// MVC => Module View Controller
+// MVP => Model View Presenter
 
-const person: string = "Martin";
-const count: number = 100;
+// environmental variable? mahfiy malumotlarni publicga chiqarmaslik uchun .env ga joylab qoyamiz
+
+/* import moment from "moment"; // => commonjs da const moment = require("moment") */
+
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log("PORT:", process.env.PORT);
+console.log("MONGO_URL:", process.env.MONGO_URL);
