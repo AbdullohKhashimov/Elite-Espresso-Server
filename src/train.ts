@@ -1,4 +1,24 @@
 console.log("hello world!");
+
+/*H-TASK: 
+
+Shunday function tuzing, u string qabul qilib teskari qilib return qilsin
+MASALAN: gerReverse("hello") return qiladi "olleh"
+
+@MITASK
+*/
+
+function string_reverse(str: string) {
+  // empty string
+  let new_str = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    new_str += str[i];
+  }
+  return new_str;
+}
+const result = string_reverse("hello");
+console.log("result:", result);
+
 /*G-TASK: 
 
 Shunday function tuzingki unga integerlardan iborat
@@ -10,17 +30,17 @@ MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
 */
 // type: array[]
 
-function getHighestIndex(arr: number[]): number {
-  let greatest: number | undefined;
-  let greatestIndex: number | undefined;
-  for (let i = 0; i < arr.length; i++) {
-    if (!greatest || arr[i] > greatest) {
-      greatest = arr[i];
-      greatestIndex = i;
-    }
-  }
-  return greatestIndex!;
-}
+// function getHighestIndex(arr: number[]): number {
+//   let greatest: number | undefined;
+//   let greatestIndex: number | undefined;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (!greatest || arr[i] > greatest) {
+//       greatest = arr[i];
+//       greatestIndex = i;
+//     }
+//   }
+//   return greatestIndex!;
+// }
 
-const result: number = getHighestIndex([5, 21, 12, 21, 8]);
-console.log("result:", result);
+// const result: number = getHighestIndex([5, 21, 12, 21, 8]);
+// console.log("result:", result);
