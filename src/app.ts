@@ -17,7 +17,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 /** 4- Routers **/
-// app.use("/admin", routerAdmin);
-app.use("/", router); // Middleware design pattern
+app.use("/admin", routerAdmin); // BSSR: EJS
+app.use("/", router); // Middleware design pattern : React
 
 export default app;
