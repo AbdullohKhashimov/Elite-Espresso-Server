@@ -1,5 +1,14 @@
 console.log("hello world!");
 
+/* H-TASK: 
+
+shunday function tuzing, u integerlardan iborat 
+arrayni argument sifatida qabul qilib, 
+faqat positive qiymatlarni olib string holatda return qilsin
+MASALAN: getPositive([1, -4, 2]) return qiladi "12"
+
+@MITASK */
+
 /*H-TASK: 
 
 Shunday function tuzing, u string qabul qilib teskari qilib return qilsin
@@ -8,16 +17,16 @@ MASALAN: gerReverse("hello") return qiladi "olleh"
 @MITASK
 */
 
-function string_reverse(str: string) {
-  // empty string
-  let new_str = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    new_str += str[i];
-  }
-  return new_str;
-}
-const result = string_reverse("hello");
-console.log("result:", result);
+// function string_reverse(str: string) {
+//   // empty string
+//   let new_str = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     new_str += str[i];
+//   }
+//   return new_str;
+// }
+// const result = string_reverse("hello");
+// console.log("result:", result);
 
 /*G-TASK: 
 
