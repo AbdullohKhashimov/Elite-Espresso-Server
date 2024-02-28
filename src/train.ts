@@ -9,7 +9,18 @@ MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
 @MITASK */
 
-/*H-TASK: 
+function getPositive(arr: number[]) {
+  return arr.reduce((result: string, num: number) => {
+    if (num > 0) {
+      result += num.toString();
+    }
+    return result;
+  }, "");
+}
+const result = getPositive([1, -4, 2]);
+console.log(result);
+
+/*TASK: 
 
 Shunday function tuzing, u string qabul qilib teskari qilib return qilsin
 MASALAN: gerReverse("hello") return qiladi "olleh"
