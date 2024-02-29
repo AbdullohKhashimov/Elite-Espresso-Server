@@ -8,7 +8,7 @@ faqat positive qiymatlarni olib string holatda return qilsin
 MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
 @MITASK */
-
+/*
 function getPositive(arr: number[]) {
   return arr.reduce((result: string, num: number) => {
     if (num > 0) {
@@ -18,7 +18,7 @@ function getPositive(arr: number[]) {
   }, "");
 }
 const result = getPositive([1, -4, 2]);
-console.log(result);
+console.log(result); */
 
 /*TASK: 
 
@@ -27,18 +27,18 @@ MASALAN: gerReverse("hello") return qiladi "olleh"
 
 @MITASK
 */
-
-// function string_reverse(str: string) {
-//   // empty string
-//   let new_str = "";
-//   for (let i = str.length - 1; i >= 0; i--) {
-//     new_str += str[i];
-//   }
-//   return new_str;
-// }
-// const result = string_reverse("hello");
-// console.log("result:", result);
-
+/*
+function string_reverse(str: string) {
+  // empty string
+  let new_str = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    new_str += str[i];
+  }
+  return new_str;
+}
+const result = string_reverse("hello");
+console.log("result:", result);
+*/
 /*G-TASK: 
 
 Shunday function tuzingki unga integerlardan iborat
@@ -64,3 +64,13 @@ MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
 
 // const result: number = getHighestIndex([5, 21, 12, 21, 8]);
 // console.log("result:", result);
+
+/**
+ * Project Standards:
+ * -Logging standards
+ * - Naming standards
+ *    function, method, variable => CAMEL case  goHome/getLogin
+ *    class => Pascal case                      MemberService
+ *    folder => KEBAB case
+ *    css Class => SNAKE case                   button_style
+ */

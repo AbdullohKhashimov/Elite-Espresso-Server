@@ -54,4 +54,4 @@ const memberSchema = new Schema(
   { timestamps: true } // updatedAt, createdAt
 );
 
-export default mongoose.model("Member", memberSchema);
+export default mongoose.model("Member", memberSchema); // member schema model class yasadik.
