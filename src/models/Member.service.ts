@@ -10,11 +10,14 @@ class MemberService {
   private readonly memberModel;
 
   constructor() {
+    // memberModel ni schema dagi MemberModel iga tenglab olamz
     this.memberModel = MemberModel;
   }
 
   // promise(void) : typescript bolganligi uchun bu method hech nmaani qaytarmaslik uchun yozilgan shart
   // agar async function bolmasa demak promise ishlatmimiz
+  // processSignup functionini parameteriga input ni pass qilamiz va uning type MemberInput
+
   public async processSignup(input: MemberInput): Promise<Member> {
     // databasega bogliq mantiq:
     // exist variable hosil qilib oldik
@@ -31,8 +34,10 @@ class MemberService {
       // memberSchema modelmni .create methodini ishlatdik.
       // natijani result variable ga tenglab oldik
       const result = await this.memberModel.create(input);
+
       // passwordni hide qildik "" bosh stringga tenglab
       result.memberPassword = "";
+
       // va result ga biriktirilgan natijani return qildik
       return result;
     } catch (err) {

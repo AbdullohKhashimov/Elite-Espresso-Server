@@ -10,6 +10,12 @@
  *
  */
 
+/** Kop ishlatiladigon APIs
+ *  Traditional API
+ * Rest API
+ * GraphQL API
+ * **/
+
 /* H-TASK: 
 
 shunday function tuzing, u integerlardan iborat 

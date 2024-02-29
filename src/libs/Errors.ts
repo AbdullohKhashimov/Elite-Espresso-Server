@@ -16,6 +16,7 @@ export enum Message {
   UPDATE_FAILED = "Update is failed",
 }
 
+// Java Scriptni ichidagi error larga extend bolsin
 class Errors extends Error {
   public code: HttpCode;
   public message: Message;
