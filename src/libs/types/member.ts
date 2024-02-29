@@ -2,6 +2,7 @@ import { MemberStatus, MemberType } from "../enums/member.enum";
 import { ObjectId } from "mongoose";
 
 export interface Member {
+  // ObjectId ni mongoose dan olamz
   _id: ObjectId;
   memberType?: MemberType;
   memberStatus?: MemberStatus;
