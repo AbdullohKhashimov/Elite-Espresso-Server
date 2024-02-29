@@ -1,4 +1,14 @@
-console.log("hello world!");
+/**
+ * Project Standards:
+ * - Logging standards
+ * - Naming standards
+ *    function, method, variable => CAMEL case  goHome/getLogin
+ *    class => Pascal case                      MemberService
+ *    folder, file => KEBAB case
+ *    css Class => SNAKE case                   button_style
+ * - Error handling
+ *
+ */
 
 /* H-TASK: 
 
@@ -64,13 +74,3 @@ MASALAN: getHighestIndex([5, 21, 12, 21, 8]) return qiladi 1 sonini.
 
 // const result: number = getHighestIndex([5, 21, 12, 21, 8]);
 // console.log("result:", result);
-
-/**
- * Project Standards:
- * -Logging standards
- * - Naming standards
- *    function, method, variable => CAMEL case  goHome/getLogin
- *    class => Pascal case                      MemberService
- *    folder => KEBAB case
- *    css Class => SNAKE case                   button_style
- */
