@@ -1,7 +1,33 @@
 // togridan togri controller bn ishlaydigan model
 
+import { MemberInput, Member } from "../libs/types/member";
+import MemberModel from "../schema/Member.model";
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { MemberType } from "../libs/enums/member.enum";
+
 class MemberService {
-  constructor() {}
+  private readonly memberModel;
+
+  constructor() {
+    this.memberModel = MemberModel;
+  }
+
+  // promise(void) : typescript bolganligi uchun bu method hech nmaani qaytarmaslik uchun yozilgan shart
+  // agar async bolmasa function demak promise ishlatmimiz
+  public async processSignup(input: MemberInput): Promise<Member> {
+    const exist = await this.memberModel
+      .findOne({ memberType: MemberType.RESTAURANT })
+      .exec();
+    console.log("exist:", exist);
+    if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+    try {
+      const result = await this.memberModel.create(input);
+      result.memberPassword = "";
+      return result;
+    } catch (err) {
+      throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+    }
+  }
 }
 
 export default MemberService;
