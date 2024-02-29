@@ -6,10 +6,17 @@ import restaurantController from "./controllers/restaurant.controller";
 // 1: endpoint (url)
 // 2: restaurantController ga bogliq methodlar
 
+/**Restauran */
 routerAdmin.get("/", restaurantController.goHome);
+routerAdmin
+  .get("/login", restaurantController.getLogin)
+  .post("/login", restaurantController.processLogin);
+routerAdmin
+  .get("/signup", restaurantController.getSignup)
+  .post("/signup", restaurantController.processSignup);
 
-routerAdmin.get("/login", restaurantController.getLogin);
+/**Product */
 
-routerAdmin.get("/signup", restaurantController.getSignup);
+/**User */
 
 export default routerAdmin;
