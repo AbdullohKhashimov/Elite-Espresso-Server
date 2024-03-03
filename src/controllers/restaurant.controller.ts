@@ -1,7 +1,7 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../models/Member.service";
-import { MemberInput } from "../libs/types/member";
+import { MemberInput, LoginInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
 const restaurantController: T = {};
@@ -33,12 +33,19 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processLogin = (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
     console.log("processLogin");
-    res.send("request success");
+    console.log("body:", req.body);
+
+    const input: LoginInput = req.body;
+
+    const memberService = new MemberService();
+    const result = await memberService.processLogin(input);
+    res.send(result);
   } catch (err) {
     console.log("Error, getSignup:", err);
+    res.send(err);
   }
 };
 
@@ -52,6 +59,7 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     newMember.memberType = MemberType.RESTAURANT;
     // MemberService class dan instance olib memberService variable ga tenglashtirib olyapmiz
     const memberService = new MemberService();
+
     // hosil qilingan memberService objectini result variable ga tenglashtirib olyabmiz
     // va hosil bolgan object orqali processSignup methodini ishlatamiz.
     const result = await memberService.processSignup(newMember);
