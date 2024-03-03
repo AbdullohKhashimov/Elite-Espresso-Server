@@ -38,10 +38,15 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     console.log("processLogin");
     console.log("body:", req.body);
 
+    /* input variable hosil qildik. va uni req.body kelayotgan malumotga tenglab oldik */
     const input: LoginInput = req.body;
 
+    /* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
     const memberService = new MemberService();
+    /* memberservice objectiga restaurantControllerni processLogin
+     * methodini chaqirib undan qaytgan malumotni result degan variable ga tenglashitirib olamz */
     const result = await memberService.processLogin(input);
+
     res.send(result);
   } catch (err) {
     console.log("Error, getSignup:", err);
