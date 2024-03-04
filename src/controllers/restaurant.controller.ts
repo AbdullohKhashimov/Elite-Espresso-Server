@@ -4,6 +4,8 @@ import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
+/* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
+const memberService = new MemberService();
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
@@ -41,11 +43,10 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     /* input variable hosil qildik. va uni req.body kelayotgan malumotga tenglab oldik */
     const input: LoginInput = req.body;
 
-    /* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
-    const memberService = new MemberService();
     /* memberservice objectiga restaurantControllerni processLogin
      * methodini chaqirib undan qaytgan malumotni result degan variable ga tenglashitirib olamz */
     const result = await memberService.processLogin(input);
+    // TODO: SESSIONS AUTHENTICATION
 
     res.send(result);
   } catch (err) {
@@ -62,12 +63,12 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     // kirib kelayotgan malumotni newMember variable ga tenglab olyabmiz
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
-    // MemberService class dan instance olib memberService variable ga tenglashtirib olyapmiz
-    const memberService = new MemberService();
 
     // hosil qilingan memberService objectini result variable ga tenglashtirib olyabmiz
     // va hosil bolgan object orqali processSignup methodini ishlatamiz.
     const result = await memberService.processSignup(newMember);
+    // TODO: SESSIONS AUTHENTICATION
+
     res.send(result);
   } catch (err) {
     console.log("Error, getSignup:", err);

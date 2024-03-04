@@ -1,3 +1,4 @@
+// typelar uchun umumiy file boshqa file da type ni orniga T ni qisqartirib codeni yoziw maqsadida
 export interface T {
   [key: string]: any;
 }

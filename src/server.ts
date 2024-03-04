@@ -14,6 +14,7 @@
 // Cluster => Database => Collection => Document => Dataset
 
 import dotenv from "dotenv";
+// config methodni execute qilyabmz integration
 dotenv.config();
 import mongoose from "mongoose";
 import app from "./app";
