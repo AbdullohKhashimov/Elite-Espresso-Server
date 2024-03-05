@@ -1,3 +1,19 @@
+/* I-TASK: 
+
+Shunday function tuzing, unga string argument pass bolsin. 
+Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+MASALAN: getDigits("m14i1t") return qiladi "141"
+
+@MITASK */
+
+function getDigits(str: string) {
+  let num_str = str.replace(/[^0-9]/g, "");
+  return parseInt(num_str);
+}
+
+const result = getDigits("m14i1t");
+console.log(result);
+
 /**
  * Project Standards:
  * - Logging standards
