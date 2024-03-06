@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
+import { AdminRequest } from "../libs/types/member";
 
 /* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
 const memberService = new MemberService();
@@ -35,27 +36,10 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processLogin = async (req: Request, res: Response) => {
-  try {
-    console.log("processLogin");
-    console.log("body:", req.body);
-
-    /* input variable hosil qildik. va uni req.body kelayotgan malumotga tenglab oldik */
-    const input: LoginInput = req.body;
-
-    /* memberservice objectiga restaurantControllerni processLogin
-     * methodini chaqirib undan qaytgan malumotni result degan variable ga tenglashitirib olamz */
-    const result = await memberService.processLogin(input);
-    // TODO: SESSIONS AUTHENTICATION
-
-    res.send(result);
-  } catch (err) {
-    console.log("Error, getSignup:", err);
-    res.send(err);
-  }
-};
-
-restaurantController.processSignup = async (req: Request, res: Response) => {
+restaurantController.processSignup = async (
+  req: AdminRequest,
+  res: Response
+) => {
   try {
     console.log("processSignup");
     console.log("body:", req.body);
@@ -67,11 +51,40 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     // hosil qilingan memberService objectini result variable ga tenglashtirib olyabmiz
     // va hosil bolgan object orqali processSignup methodini ishlatamiz.
     const result = await memberService.processSignup(newMember);
-    // TODO: SESSIONS AUTHENTICATION
 
-    res.send(result);
+    // SESSIONS AUTHENTICATION
+    req.session.member = result;
+    req.session.save(function () {
+      res.send(result);
+    });
   } catch (err) {
-    console.log("Error, getSignup:", err);
+    console.log("Error, processSignup:", err);
+    res.send(err);
+  }
+};
+
+restaurantController.processLogin = async (
+  req: AdminRequest,
+  res: Response
+) => {
+  try {
+    console.log("processLogin");
+    console.log("body:", req.body);
+
+    /* input variable hosil qildik. va uni req.body kelayotgan malumotga tenglab oldik */
+    const input: LoginInput = req.body;
+
+    /* memberservice objectiga restaurantControllerni processLogin
+     * methodini chaqirib undan qaytgan malumotni result degan variable ga tenglashitirib olamz */
+    const result = await memberService.processLogin(input);
+
+    //  SESSIONS AUTHENTICATION
+    req.session.member = result;
+    req.session.save(function () {
+      res.send(result);
+    });
+  } catch (err) {
+    console.log("Error,processLogin:", err);
     res.send(err);
   }
 };

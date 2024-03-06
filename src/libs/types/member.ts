@@ -1,5 +1,7 @@
 import { MemberStatus, MemberType } from "../enums/member.enum";
 import { ObjectId } from "mongoose";
+import { Request } from "express";
+import { Session } from "express-session";
 
 export interface Member {
   // ObjectId ni mongoose dan olamz
@@ -32,4 +34,9 @@ export interface MemberInput {
 export interface LoginInput {
   memberNick: string;
   memberPassword: string;
+}
+
+export interface AdminRequest extends Request {
+  member: Member;
+  session: Session & { member: Member };
 }
