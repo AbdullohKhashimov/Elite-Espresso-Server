@@ -18,6 +18,7 @@ export enum Message {
   USED_NICK_PHONE = "You are inserting already used phone number or Nick!",
   NO_MEMBER_NICK = "No member with that member nick!",
   WRONG_PASSWORD = "Wrong Password, please try again!",
+  NOTAUTHENTICATED = "You are not authenticated, Please login first!",
 }
 
 // Java Scriptni ichidagi error larga extend bolsin

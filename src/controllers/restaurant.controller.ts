@@ -4,6 +4,7 @@ import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import { AdminRequest } from "../libs/types/member";
+import { Message } from "../libs/Errors";
 
 /* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
 const memberService = new MemberService();
@@ -83,6 +84,23 @@ restaurantController.processLogin = async (
     req.session.save(function () {
       res.send(result);
     });
+  } catch (err) {
+    console.log("Error,processLogin:", err);
+    res.send(err);
+  }
+};
+
+restaurantController.checkAuthSession = async (
+  req: AdminRequest,
+  res: Response
+) => {
+  try {
+    console.log("checkAuthSession");
+    if (req.session?.member)
+      res.send(
+        `<script> alert("Hi ${req.session.member.memberNick}")</script>`
+      );
+    else res.send(`<script> alert("${Message.NOTAUTHENTICATED}")</script>`);
   } catch (err) {
     console.log("Error,processLogin:", err);
     res.send(err);
