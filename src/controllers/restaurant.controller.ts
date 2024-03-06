@@ -1,9 +1,8 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../models/Member.service";
-import { MemberInput, LoginInput } from "../libs/types/member";
+import { MemberInput, LoginInput, AdminRequest } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import { AdminRequest } from "../libs/types/member";
 import { Message } from "../libs/Errors";
 
 /* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
@@ -45,12 +44,8 @@ restaurantController.processSignup = async (
     console.log("processSignup");
     console.log("body:", req.body);
 
-    // kirib kelayotgan malumotni newMember variable ga tenglab olyabmiz
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
-
-    // hosil qilingan memberService objectini result variable ga tenglashtirib olyabmiz
-    // va hosil bolgan object orqali processSignup methodini ishlatamiz.
     const result = await memberService.processSignup(newMember);
 
     // SESSIONS AUTHENTICATION
@@ -90,6 +85,17 @@ restaurantController.processLogin = async (
   }
 };
 
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+  try {
+    req.session.destroy(function () {
+      res.redirect("/admin");
+    });
+  } catch (err) {
+    console.log("Error,logout:", err);
+    res.send(err);
+  }
+};
+
 restaurantController.checkAuthSession = async (
   req: AdminRequest,
   res: Response
@@ -100,9 +106,9 @@ restaurantController.checkAuthSession = async (
       res.send(
         `<script> alert("Hi ${req.session.member.memberNick}")</script>`
       );
-    else res.send(`<script> alert("${Message.NOTAUTHENTICATED}")</script>`);
+    else res.send(`<script> alert("${Message.NOTAUTHENTICATED}") </script>`);
   } catch (err) {
-    console.log("Error,processLogin:", err);
+    console.log("Error,checkAuthSession:", err);
     res.send(err);
   }
 };
