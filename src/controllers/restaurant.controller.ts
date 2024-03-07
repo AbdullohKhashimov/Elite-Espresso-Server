@@ -1,5 +1,5 @@
 import { T } from "../libs/types/common";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput, AdminRequest } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
@@ -121,6 +121,22 @@ restaurantController.checkAuthSession = async (
   } catch (err) {
     console.log("Error,checkAuthSession:", err);
     res.send(err);
+  }
+};
+
+restaurantController.verifyRestaurant = (
+  req: AdminRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+    req.member = req.session.member;
+    next();
+  } else {
+    const message = Message.NOTAUTHENTICATED;
+    res.send(
+      `<script> alert("${message}"); window.location.replace("/admin/login") </script>`
+    );
   }
 };
 
