@@ -30,6 +30,7 @@ class MemberService {
     try {
       const result = await this.memberModel.create(input);
       result.memberPassword = "";
+
       // databasedan kelgan resultni JSON formatga ogiryapmz!
       return result.toJSON();
     } catch (err) {

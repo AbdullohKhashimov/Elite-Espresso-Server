@@ -8,10 +8,10 @@ import Errors from "../libs/Errors";
 const memberService = new MemberService();
 const memberController: T = {};
 
-// SPA uchun signup methodini definition qismini qurish
 memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("signup");
+
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
     // TODO: TOKENS AUTHENTICATION
@@ -24,10 +24,11 @@ memberController.signup = async (req: Request, res: Response) => {
   }
 };
 
+// calling the login method and passing two arguments req,res
 memberController.login = async (req: Request, res: Response) => {
   try {
     console.log("login");
-    console.log("body:", req.body);
+
     const input: LoginInput = req.body,
       result = await memberService.login(input);
     // TODO: TOKENS AUTHENTICATION
