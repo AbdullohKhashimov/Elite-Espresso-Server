@@ -1,3 +1,21 @@
+/* J-TASK: 
+
+Shunday function yozing, 
+u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+
+@MITASK
+*/
+
+function findLongestWord(str: any) {
+  // Split the string into array
+  let strSplit = str.split(" ");
+  // Return the first sorted item of the Array
+  return strSplit.sort((a: any, b: any) => b.length - a.length)[0];
+}
+const result = findLongestWord("I come from Uzbekistan");
+console.log("result:", result);
+
 /* I-TASK: 
 
 Shunday function tuzing, unga string argument pass bolsin. 
@@ -6,13 +24,13 @@ MASALAN: getDigits("m14i1t") return qiladi "141"
 
 @MITASK */
 
-function getDigits(str: string) {
+/* function getDigits(str: string) {
   let num_str = str.replace(/[^0-9]/g, "");
   return parseInt(num_str);
 }
 
 const result = getDigits("m14i1t");
-console.log(result);
+console.log(result); */
 
 /**
  * Project Standards:
@@ -25,6 +43,10 @@ console.log(result);
  * - Error handling
  *
  */
+
+/** Cookie ni hislatlari
+ * 1)
+ * **/
 
 /** Kop ishlatiladigon APIs
  *  Traditional API

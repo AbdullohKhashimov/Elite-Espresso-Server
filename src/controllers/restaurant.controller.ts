@@ -45,8 +45,9 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
-    console.log("body:", req.body);
 
+    /* kirib kelayotgan request body ni newMember 
+    constantasiga tenglab olyabmiz va uning type MemberInput interface */
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);

@@ -22,6 +22,7 @@ class MemberService {
    *agar async function bolmasa demak promise ishlatmimiz
    *processSignup functionini parameteriga input ni pass qilamiz va uning type MemberInput  */
 
+  // signup methodni definition qismini quryapmiz bu esa Rest API niki yani Reactbn dahldor
   public async signup(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
@@ -29,6 +30,7 @@ class MemberService {
     try {
       const result = await this.memberModel.create(input);
       result.memberPassword = "";
+      // databasedan kelgan resultni JSON formatga ogiryapmz!
       return result.toJSON();
     } catch (err) {
       console.error("Error model: signup", err);
@@ -57,17 +59,16 @@ class MemberService {
     return await this.memberModel.findById(member._id).lean().exec();
   }
 
-  /** BSSR **/
-
+  /** SSR **/
   /*
    *promise(void) : typescript bolganligi uchun bu method hech nmaani qaytarmaslik uchun yozilgan shart
    *agar async function bolmasa demak promise ishlatmimiz
-   *processSignup functionini parameteriga input ni pass qilamiz va uning type MemberInput  */
+   *processSignup methodini parameteriga input ni pass qilamiz va uning type MemberInput  */
 
   public async processSignup(input: MemberInput): Promise<Member> {
     /* databasega bogliq mantiq:
      * exist variable hosil qilib oldik
-     * memberModelni ni .findOne() static methodi */
+     * member schema Modelini .findOne() static methodi */
 
     const exist = await this.memberModel
       .findOne({ memberType: MemberType.RESTAURANT })

@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors from "../libs/Errors";
 
-// React loyihasi uchun
+// memberService nomli instance oldik MemberService class modelidan.
 const memberService = new MemberService();
 const memberController: T = {};
 
@@ -17,7 +17,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
     res.json({ member: result });
   } catch (err) {
-    console.log("Error, singup:", err);
+    console.log("Error, signup:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
@@ -33,7 +33,7 @@ memberController.login = async (req: Request, res: Response) => {
 
     res.json({ member: result });
   } catch (err) {
-    console.log("Error, processLogin:", err);
+    console.log("Error, login:", err);
     //res.json({})
   }
 };
