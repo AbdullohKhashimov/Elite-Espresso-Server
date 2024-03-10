@@ -22,7 +22,7 @@ class MemberService {
    *agar async function bolmasa demak promise ishlatmimiz
    *processSignup functionini parameteriga input ni pass qilamiz va uning type MemberInput  */
 
-  // signup methodni definition qismini quryapmiz bu esa Rest API niki yani Reactbn dahldor
+  // signup methodni definition qismini quryapmiz bu esa Rest API niki yani Reactbn dahldor(member controller uchun)
   public async signup(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
