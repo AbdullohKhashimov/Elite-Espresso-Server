@@ -54,6 +54,9 @@ restaurantController.processSignup = async (
 
     // SESSIONS AUTHENTICATION
     req.session.member = result;
+
+    /* Sessionlarimiz muvofaqqiyatli saqlangach browserdagi cookieni ichiga sid ni
+     * joylaydi va session collectionga memnber datani borib joylaydi  */
     req.session.save(function () {
       res.send(result);
     });
