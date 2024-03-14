@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput, AdminRequest } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import Errors, { Message } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 
 /* MemberService modelimizdan memberService dgan object qurib oldik (instance) */
 const memberService = new MemberService();
@@ -45,10 +45,14 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
+    const file = req.file;
+    if (!file)
+      throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
     /* kirib kelayotgan request body ni newMember 
     constantasiga tenglab olyabmiz va uning type MemberInput interface */
     const newMember: MemberInput = req.body;
+    newMember.memberImage = file?.path;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
 
@@ -58,7 +62,7 @@ restaurantController.processSignup = async (
     /* Sessionlarimiz muvofaqqiyatli saqlangach browserdagi cookieni ichiga sid ni
      * joylaydi va session collectionga memnber datani borib joylaydi  */
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("Error, processSignup:", err);
@@ -88,7 +92,7 @@ restaurantController.processLogin = async (
     //  SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("Error,processLogin:", err);
