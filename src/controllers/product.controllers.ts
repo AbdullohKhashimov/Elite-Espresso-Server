@@ -2,12 +2,13 @@ import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import Errors from "../libs/Errors";
 import ProductService from "../models/Product.service";
-import { AdminRequest } from "../libs/types/member";
 
+// productController object
 const productController: T = {};
 
 const productService = new ProductService();
 
+// Definiton part of getAllProducts method:
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");

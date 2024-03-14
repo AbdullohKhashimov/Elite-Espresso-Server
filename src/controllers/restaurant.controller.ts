@@ -128,18 +128,23 @@ restaurantController.checkAuthSession = async (
   }
 };
 
+// murojatchi kim ekanligini aniqlab beradi
+// va restaurant user kim ekanligini aniqlab beradi.
+// middleware
 restaurantController.verifyRestaurant = (
   req: AdminRequest,
   res: Response,
   next: NextFunction
+  // next() function ishlatilishi kerak agar ishlatilmasa request osilib qoladi
 ) => {
+  // requestni ichidagi sessiondagi member kimligi va uni type Restaurant ekanligini aniqlab beradi
   if (req.session?.member?.memberType === MemberType.RESTAURANT) {
     req.member = req.session.member;
     next();
   } else {
     const message = Message.NOTAUTHENTICATED;
     res.send(
-      `<script> alert("${message}"); window.location.replace("/admin/login") </script>`
+      `<script>alert("${message}"); window.location.replace('/admin/login');</script>`
     );
   }
 };

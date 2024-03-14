@@ -35,9 +35,12 @@ app.use(
     saveUninitialized: true,
   })
 );
-
+// middleware hamma qilinayotgan murojatlar uchun
 app.use(function (req, res, next) {
+  // requestan kelayotkan sessionni qabul qilish
   const sessionInstance = req.session as T;
+  // session instance ichidan kelayotkan memberqiymatni res.locals.member ga tenglab qoyamz
+  // res.locals browserni varaible lari
   res.locals.member = sessionInstance.member;
   next();
 });
