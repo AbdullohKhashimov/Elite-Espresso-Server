@@ -32,7 +32,8 @@ routerAdmin.get(
 routerAdmin.post(
   "/product/create",
   restaurantController.verifyRestaurant,
-  // makeUploader.single("productImage"),
+  // makeUploader.single("productImage"), makeUploader function uchun beriladigon manzil
+  // folder name buyerda products va request qilayotkanda productImage db beriladi
   makeUploader("products").array("productImage", 5),
   productController.createNewProduct
 );

@@ -16,6 +16,7 @@ function getTargetImageStorage(address: any) {
   });
 }
 
+// Har hil targetlar uchun upload function
 const makeUploader = (address: string) => {
   const storage = getTargetImageStorage(address);
   return multer({ storage: storage });
