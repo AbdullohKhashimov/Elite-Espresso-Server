@@ -1,3 +1,27 @@
+/* M-TASK
+Shunday function yozing, 
+u raqamlardan tashkil topgan array 
+qabul qilsin va array ichidagi har bir raqam
+ uchun raqamni ozi va hamda osha raqamni kvadratidan 
+ tashkil topgan object hosil qilib, hosil bolgan 
+ objectlarni array ichida qaytarsin.
+MASALAN: getSquareNumbers([1, 2, 3]) return 
+[{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+@MITASK
+
+*/
+
+const getSquareNumbers = (ele: any[]) => {
+  let result_store = [];
+
+  for (let i = 0; i < ele.length; i++) {
+    result_store.push({ number: ele[i], square: ele[i] * ele[i] });
+  }
+  return result_store;
+};
+const result = getSquareNumbers([1, 2, 3]);
+console.log(result);
+
 /* L-TASK: 
 
 Shunday function yozing, u string qabul qilsin va 
@@ -6,6 +30,7 @@ va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
 */
 
+/*
 function reverseSentence(str: string) {
   const split_str = str.split(" ");
   let reversed_str = [];
@@ -17,27 +42,30 @@ function reverseSentence(str: string) {
   return reversed_str.join(" ");
 }
 const result = reverseSentence("we like coding!");
-console.log(result);
+console.log(result); 
+*/
 
 /** K-TASK: 
 
 Shunday function yozing, u string qabul qilsin 
 va string ichidagi unli harflar sonini qaytarsin.
 MASALAN: countVowels("string") return 1;
+*/
 
-// 
-//  
-// // defining a function to count the vowels in a string
-// const countVowel = (str: string) => {
-//   // find the count of vowels
-//   const matches = str.match(/[aeiou]/gi);
-//   // Ternary operator to handle the case when matches is null
-//   const count: number = matches ? matches.length : 0;
-//   // return number of vowels
-//   return count;
-// };
-// const result = countVowel("string");
-// console.log("result:", result);
+/*
+// defining a function to count the vowels in a string
+const countVowel = (str: string) => {
+  // find the count of vowels
+  const matches = str.match(/[aeiou]/gi);
+
+  // Ternary operator to handle the case when matches is null
+  const count: number = matches ? matches.length : 0;
+  // return number of vowels
+  return count;
+};
+const result = countVowel("string");
+console.log("result:", result); 
+* /
 
 /* J-TASK: 
 
@@ -51,6 +79,7 @@ MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 /* function findLongestWord(str: any) {
   // Split the string into array
   let strSplit = str.split(" ");
+
   // Return the first sorted item of the Array
   return strSplit.sort((a: any, b: any) => b.length - a.length)[0];
 }
