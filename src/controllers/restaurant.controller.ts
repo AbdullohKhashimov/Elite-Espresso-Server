@@ -49,8 +49,8 @@ restaurantController.processSignup = async (
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
-    /* kirib kelayotgan request body ni newMember 
-    constantasiga tenglab olyabmiz va uning type MemberInput interface */
+    /** kirib kelayotgan request body ni newMember 
+    constantasiga tenglab olyabmiz va uning type MemberInput interface **/
     const newMember: MemberInput = req.body;
     newMember.memberImage = file?.path;
     newMember.memberType = MemberType.RESTAURANT;

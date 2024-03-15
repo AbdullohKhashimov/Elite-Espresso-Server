@@ -39,6 +39,8 @@ class ProductService {
     // string => objectId
     id = shapeIntoMongooseObjectId(id);
     const result = await this.productModel
+      // searchquery
+      // returnOriginal: false option for new:true
       .findOneAndUpdate({ _id: id }, input, { new: true })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);

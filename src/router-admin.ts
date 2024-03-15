@@ -38,7 +38,9 @@ routerAdmin.post(
   productController.createNewProduct
 );
 routerAdmin.post(
+  // epxpress topib bergan router
   "/product/:id",
+  // restarant controllerdan restaran ekanligimiz tekshiradi va keyingi bosqichga olib otadi
   restaurantController.verifyRestaurant,
   productController.updateChosenProduct
 );

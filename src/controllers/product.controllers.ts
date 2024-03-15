@@ -38,7 +38,10 @@ productController.createNewProduct = async (
     if (!req.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
+    // productInput kelayotgan request uchun interface
     const data: ProductInput = req.body;
+
+    // yuklanayotgan fileni pathini yuklayabmiz
     data.productImages = req.files?.map((ele) => {
       return ele.path;
     });
