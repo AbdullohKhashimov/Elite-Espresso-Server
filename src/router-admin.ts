@@ -3,6 +3,7 @@ const routerAdmin = express.Router();
 import restaurantController from "./controllers/restaurant.controller";
 import productController from "./controllers/product.controllers";
 import makeUploader from "./libs/utils/uploader";
+import getUSers from "./controllers/restaurant.controller";
 
 // gets two argument =>
 // 1: endpoint (url)
@@ -46,5 +47,10 @@ routerAdmin.post(
 );
 
 /** User **/
+routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers
+);
 
 export default routerAdmin;

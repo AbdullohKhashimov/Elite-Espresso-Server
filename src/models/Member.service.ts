@@ -3,7 +3,7 @@
 import { MemberInput, Member, LoginInput } from "../libs/types/member";
 import MemberModel from "../schema/Member.model";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import { MemberType } from "../libs/enums/member.enum";
+import { MemberType, MemberStatus } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 
 class MemberService {
@@ -128,6 +128,15 @@ class MemberService {
 
     // yana schema modelga murojat qilib kiritilgan malumotlar togri bolsa memberId bn topib bizga result ni qaytarb beradi
     return await this.memberModel.findById(member._id).exec();
+  }
+
+  public async getUsers(): Promise<Member[]> {
+    const result = await this.memberModel
+      .find({ memberType: MemberType.USER })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
   }
 }
 
