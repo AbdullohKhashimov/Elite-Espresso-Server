@@ -118,6 +118,9 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
 restaurantController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
+
+    // memberService objectini qollagan holda getUsers() methodini chaqrb olib uni kutib natijasini
+    // result constantasiga tenglab oldik
     const result = await memberService.getUsers();
     console.log("result:", result);
 
