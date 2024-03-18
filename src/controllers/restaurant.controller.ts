@@ -69,7 +69,7 @@ restaurantController.processSignup = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace("admin/signup") </script>`
+      `<script> alert("${message}"); window.location.replace("/admin/signup") </script>`
     );
   }
 };
@@ -80,7 +80,7 @@ restaurantController.processLogin = async (
 ) => {
   try {
     console.log("processLogin");
-    console.log("body:", req.body);
+    console.log("req.body:", req.body);
 
     /* input variable hosil qildik. va uni req.body kelayotgan malumotga tenglab oldik */
     const input: LoginInput = req.body;
@@ -99,7 +99,7 @@ restaurantController.processLogin = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace("admin/login") </script>`
+      `<script> alert("${message}"); window.location.replace("/admin/login") </script>`
     );
   }
 };

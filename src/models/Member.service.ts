@@ -136,13 +136,14 @@ class MemberService {
     return await this.memberModel.findById(member._id).exec();
   }
 
+  // why getUsers () not getting any parameter?
   public async getUsers(): Promise<Member[]> {
     // member schema Model ni find() methodini chaqirib uni ichiga argument sifatida
     // qiymati User bolgan memberType ni topib berishini kirityapmz
     const result = await this.memberModel
       .find({ memberType: MemberType.USER })
       .exec();
-    // hatolik bolsa customized errordan foydalanib bizga hatolikni korsatishini talab qilmoqdamz
+    // resultda hech qanday natija qaytmasa error hosil qilyabmz (natijasizlik)
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
     return result;
