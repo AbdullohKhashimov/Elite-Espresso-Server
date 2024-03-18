@@ -1,3 +1,31 @@
+/**N-TASK: 
+
+Shunday function yozing, u string qabul qilsin
+ va string palindrom yani togri oqilganda ham, 
+ orqasidan oqilganda ham bir hil oqiladigan 
+ soz ekanligini aniqlab boolean qiymat qaytarsin.
+MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+@MITASK
+ * 
+ */
+
+function palindromCheck(str: string) {
+  // find the length of a string
+  const len = str.length;
+
+  // looping through half of the string
+  for (let i = 0; i < len / 2; i++) {
+    // a logic to check if the first and last string are same
+    if (str[i] !== str[len - 1 - i]) {
+      return false;
+    }
+    return true;
+  }
+}
+const result = palindromCheck("dad");
+console.log(result);
+
 /* M-TASK
 Shunday function yozing, 
 u raqamlardan tashkil topgan array 
@@ -11,6 +39,7 @@ MASALAN: getSquareNumbers([1, 2, 3]) return
 
 */
 
+/*
 const getSquareNumbers = (ele: any[]) => {
   let result_store = [];
 
@@ -20,7 +49,7 @@ const getSquareNumbers = (ele: any[]) => {
   return result_store;
 };
 const result = getSquareNumbers([1, 2, 3]);
-console.log(result);
+console.log(result);*/
 
 /* L-TASK: 
 
