@@ -1,10 +1,13 @@
 console.log("Signup frontend javascript file");
 
+// image preload mantigi
 $(function () {
   const fileTarget = $(".file-box .upload-hidden");
   let filename;
 
+  // event handler
   fileTarget.on("change", function () {
+    // window/fileReader state property
     if (window.FileReader) {
       const uploadFile = $(this)[0].files[0];
       console.log("uploadFile:", uploadFile);
@@ -14,6 +17,7 @@ $(function () {
         alert("Please insert only jpeg, jpg and png ");
       } else {
         if (uploadFile) {
+          // yuklangan uploadFile orqali url hosil qilish
           console.log(URL.createObjectURL(uploadFile));
           $(".upload-img-frame")
             .attr("src", URL.createObjectURL(uploadFile))
@@ -26,6 +30,7 @@ $(function () {
   });
 });
 
+// front-end signup validation
 function validateSignupForm() {
   const memberNick = $(".member-nick").val();
   const memberPhone = $(".member-phone").val();
@@ -46,6 +51,7 @@ function validateSignupForm() {
     return false;
   }
 
+  // prerender mantigini validate qismi
   const memberImage = $(".member-image").get(0).files[0].name
     ? $(".member-image").get(0).files[0].name
     : null;
