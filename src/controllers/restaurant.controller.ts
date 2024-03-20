@@ -84,6 +84,7 @@ restaurantController.processLogin = async (
     console.log("req.body:", req.body);
 
     /* input variable hosil qildik. va uni req.body kelayotgan malumotga tenglab oldik */
+    // front-end dan kelayotgan request body qismi
     const input: LoginInput = req.body;
 
     /* memberservice objectiga restaurantControllerni processLogin
