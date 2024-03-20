@@ -1,3 +1,23 @@
+/**O-TASK:
+
+Shunday function yozing, u har xil valuelardan iborat array
+ qabul qilsin va array ichidagi sonlar yigindisini hisoblab 
+ chiqqan javobni qaytarsin.
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+@MITASK */
+
+function calculateSumOfNumbers(arr: any) {
+  let sum = 0;
+  for (let i = 0; i <= arr.length; i++) {
+    if (typeof arr[i] === "number") sum += arr[i];
+  }
+
+  return sum;
+}
+const result = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+console.log("result:", result);
+
 /**N-TASK: 
 
 Shunday function yozing, u string qabul qilsin
@@ -10,7 +30,7 @@ MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
  * 
  */
 
-function palindromCheck(str: string) {
+/* function palindromCheck(str: string) {
   // find the length of a string
   const len = str.length;
 
@@ -25,7 +45,7 @@ function palindromCheck(str: string) {
 }
 const result = palindromCheck("dad");
 console.log(result);
-
+*/
 /* M-TASK
 Shunday function yozing, 
 u raqamlardan tashkil topgan array 
