@@ -34,6 +34,7 @@ productController.createNewProduct = async (
 ) => {
   try {
     console.log("createNewProduct");
+    console.log("req.boyd:", req.body);
 
     // qabul qilingan arrayni ichidan har bir rasmni pathini olish
     if (!req.files?.length)
@@ -49,14 +50,14 @@ productController.createNewProduct = async (
 
     await productService.createNewProduct(data);
     res.send(
-      `<script> alert("Successful creation!"); window.location.replace('admin/product/all') </script>`
+      `<script> alert("Successful creation!"); window.location.replace('/admin/product/all') </script>`
     );
   } catch (err) {
     console.log("Error, createNewProduct", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace('admin/product/all') </script>`
+      `<script> alert("${message}"); window.location.replace('/admin/product/all') </script>`
     );
   }
 };
