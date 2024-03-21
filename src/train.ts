@@ -1,3 +1,33 @@
+/*
+P - TASK:
+
+Shunday function yozing, u object qabul
+ qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+@MITASK
+*/
+
+// Solution 1
+function objectToArray(val: any) {
+  const result = [];
+  for (let key in val) {
+    if (val.hasOwnProperty(key)) {
+      result.push([key, val[key]]);
+    }
+  }
+  return result;
+}
+// solution 2 shortest
+/*function objectToArray(obj: {}) {
+  return Object.entries(obj);
+}
+*/
+
+const obj = { a: 10, b: 20 };
+const result = objectToArray(obj);
+console.log("result:", result);
+
 /**O-TASK:
 
 Shunday function yozing, u har xil valuelardan iborat array
@@ -7,7 +37,7 @@ MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
 @MITASK */
 
-function calculateSumOfNumbers(arr: any) {
+/* function calculateSumOfNumbers(arr: any) {
   let sum = 0;
   for (let i = 0; i <= arr.length; i++) {
     if (typeof arr[i] === "number") sum += arr[i];
@@ -17,6 +47,7 @@ function calculateSumOfNumbers(arr: any) {
 }
 const result = calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
 console.log("result:", result);
+*/
 
 /**N-TASK: 
 
