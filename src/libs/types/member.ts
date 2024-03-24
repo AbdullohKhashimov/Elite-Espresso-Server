@@ -49,7 +49,7 @@ export interface MemberUpdateInput {
 
 export interface AdminRequest extends Request {
   member: Member;
-  session: Session & { member: Member };
+  session: Session & { member: Member }; // session ichida member ham bor degan manoni beradi.
   file: Express.Multer.File;
   files: Express.Multer.File[];
 }

@@ -46,7 +46,7 @@ restaurantController.processSignup = async (
   try {
     console.log("processSignup");
     console.log("req.body:", req.body);
-    const file = req.file;
+    const file = req.file; // yuklangan fileni yuklab olish
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
@@ -58,7 +58,7 @@ restaurantController.processSignup = async (
     const result = await memberService.processSignup(newMember);
 
     // SESSIONS AUTHENTICATION
-    req.session.member = result;
+    req.session.member = result; // session ichida member bor
 
     /* Sessionlarimiz muvofaqqiyatli saqlangach browserdagi cookieni ichiga sid ni
      * joylaydi va session collectionga memnber datani borib joylaydi  */

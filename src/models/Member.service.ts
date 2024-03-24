@@ -69,6 +69,7 @@ class MemberService {
     if (!isMatch) {
       throw new Errors(HttpCode.UNAUTHORISED, Message.WRONG_PASSWORD);
     }
+    // .lean() bn databasedage datani tahrir qilish mumkun. Database dagi malumotni ozgartira olamz
     return await this.memberModel.findById(member._id).lean().exec();
   }
 

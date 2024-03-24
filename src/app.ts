@@ -9,7 +9,9 @@ import { T } from "./libs/types/common";
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
+// session connection to database
 const MongoDBStore = ConnectMongoDB(session);
+// mongoDbStore object
 const store = new MongoDBStore({
   uri: String(process.env.MONGO_URL),
   collection: "sessions",
