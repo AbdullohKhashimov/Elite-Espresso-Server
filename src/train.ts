@@ -1,3 +1,26 @@
+// Q-TASK:
+
+/* Shunday function yozing, u 2 ta parametrgga ega bolib
+ birinchisi object, ikkinchisi string. Agar string parametr
+ objectni propertysi bolsa true bolmasa false qaytarsin.
+ MASALAN: hasProperty({name: "BMW", model: "M3"}, "model")
+ return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+*/
+const hasProperty = (obj: any, str: any) => {
+  let new_arr = [];
+  let new_arr1 = [];
+  for (const key of Object.keys(obj)) {
+    if (key === str) {
+      new_arr.push(key);
+    } else {
+      new_arr1.push(key);
+    }
+  }
+  return new_arr.length === 0 ? false : true;
+};
+const result = hasProperty({ name: "BMW", model: "M3" }, "model");
+console.log("result:", result);
+
 /*
 P - TASK:
 
@@ -9,7 +32,7 @@ MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 */
 
 // Solution 1
-function objectToArray(val: any) {
+/* function objectToArray(val: any) {
   const result = [];
   for (let key in val) {
     if (val.hasOwnProperty(key)) {
@@ -19,14 +42,14 @@ function objectToArray(val: any) {
   return result;
 }
 // solution 2 shortest
-/*function objectToArray(obj: {}) {
+/*  function objectToArray(obj: {}) {
   return Object.entries(obj);
 }
-*/
+
 
 const obj = { a: 10, b: 20 };
 const result = objectToArray(obj);
-console.log("result:", result);
+console.log("result:", result); */
 
 /**O-TASK:
 
