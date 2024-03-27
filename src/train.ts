@@ -1,3 +1,31 @@
+/*
+R-TASK:
+
+Shunday function yozing, u string parametrga ega bolsin. 
+String "1+2" holatda pass qilinganda string ichidagi 
+sonlar yigindisini number holatda qaytarsin.
+MASALAN: calculate("1+3") return 4;
+
+@MITASK
+
+*/
+
+const calculate_string = (str: any) => {
+  let new_arr = str.split("").map(Number);
+  let num_arr = [];
+
+  for (let i = 0; i < new_arr.length; i++) {
+    if (!isNaN(new_arr[i])) {
+      num_arr.push(new_arr[i]);
+    }
+  }
+
+  return num_arr.reduce((a: any, b: any) => a + b);
+};
+
+const result = calculate_string("1+2+3");
+console.log("result:", result);
+
 // Q-TASK:
 
 /* Shunday function yozing, u 2 ta parametrgga ega bolib
@@ -6,7 +34,8 @@
  MASALAN: hasProperty({name: "BMW", model: "M3"}, "model")
  return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 */
-const hasProperty = (obj: any, str: any) => {
+
+/* const hasProperty = (obj: any, str: any) => {
   let new_arr = [];
   let new_arr1 = [];
   for (const key of Object.keys(obj)) {
@@ -20,6 +49,7 @@ const hasProperty = (obj: any, str: any) => {
 };
 const result = hasProperty({ name: "BMW", model: "M3" }, "model");
 console.log("result:", result);
+*/
 
 /*
 P - TASK:
