@@ -1,4 +1,37 @@
 /*
+       S-TASK:
+Shunday function yozing, u numberlardan tashkil topgan
+array qabul qilsin va osha numberlar orasidagi tushib
+qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2
+ */
+
+const missingNumber = (arr: number[]) => {
+  for (let i = 1; i <= arr.length + 1; i++) {
+    if (arr.indexOf(i) === -1) return i;
+  }
+};
+const result = missingNumber([3, 0, 1]);
+console.log("result:", result);
+
+// 2nd solution
+/*
+function missingNumber(arr: number[]) {
+  const max = Math.max(...arr); // Will find the highest number
+  const min = Math.min(...arr); // will find the lowest number
+  const missing = [];
+
+  for (let i = min; i <= max; i++) {
+    if (!arr.includes(i)) {
+      // Checking whether i(current value) present in num(argument)
+      missing.push(i); //Adding numbers which are not in num(argument) array
+    }
+  }
+  return missing;
+}
+*/
+
+/*
 R-TASK:
 
 Shunday function yozing, u string parametrga ega bolsin. 
@@ -10,7 +43,7 @@ MASALAN: calculate("1+3") return 4;
 
 */
 
-const calculate_string = (str: any) => {
+/* const calculate_string = (str: any) => {
   let new_arr = str.split("").map(Number);
   let num_arr = [];
 
@@ -25,7 +58,7 @@ const calculate_string = (str: any) => {
 
 const result = calculate_string("1+2+3");
 console.log("result:", result);
-
+*/
 // Q-TASK:
 
 /* Shunday function yozing, u 2 ta parametrgga ega bolib
