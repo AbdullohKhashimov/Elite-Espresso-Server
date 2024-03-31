@@ -1,3 +1,35 @@
+/* T-TASK:
+Shunday function yozing, u sonlardan tashkil topgan 
+2 ta array qabul qilsin va ikkala arraydagi sonlarni 
+tartiblab bir arrayda qaytarsin
+MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+@MITASK
+*/
+
+const mergeSortedArrays = (arr1: any, arr2: any) => {
+  let new_arr = [];
+
+  // inserting all elements from arr1 to new_arr
+  for (let i = 0; i < arr1.length; i++) {
+    new_arr.push(arr1[i]);
+  }
+
+  // inserting all elements from arr2 to new_arr
+  for (let i = 0; i < arr2.length; i++) {
+    new_arr.push(arr2[i]);
+  }
+
+  // Sort the merged array in ascending order
+  new_arr.sort((a, b) => a - b);
+  return new_arr;
+};
+
+let result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+console.log("result:", result);
+
+// if string output is wanted
+/**  console.log("result:", result.join(" ")); **/
+
 /*
        S-TASK:
 Shunday function yozing, u numberlardan tashkil topgan
@@ -5,6 +37,8 @@ array qabul qilsin va osha numberlar orasidagi tushib
 qolgan sonni topib uni return qilsin
 MASALAN: missingNumber([3, 0, 1]) return 2
  */
+
+/*
 
 const missingNumber = (arr: number[]) => {
   for (let i = 1; i <= arr.length + 1; i++) {
@@ -14,6 +48,7 @@ const missingNumber = (arr: number[]) => {
 const result = missingNumber([3, 0, 1]);
 console.log("result:", result);
 
+*/
 // 2nd solution
 /*
 function missingNumber(arr: number[]) {
