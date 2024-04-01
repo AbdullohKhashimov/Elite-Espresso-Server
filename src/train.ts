@@ -1,3 +1,27 @@
+/** 
+ U-TASK:
+
+Shunday function yozing, uni number parametri bolsin
+ va 0 dan berilgan parametrgacha bolgan oraliqdagi 
+ faqat toq sonlar nechtaligini return qilsin
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+**/
+
+const sumOdds = (arr: any) => {
+  let count = 0;
+  for (let i = 0; i < arr; i++) {
+    if (i % 2 !== 0) {
+      count++;
+    }
+  }
+
+  return count;
+};
+
+const result = sumOdds(9);
+console.log("result:", result);
+
 /* T-TASK:
 Shunday function yozing, u sonlardan tashkil topgan 
 2 ta array qabul qilsin va ikkala arraydagi sonlarni 
@@ -6,7 +30,7 @@ MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
 @MITASK
 */
 
-const mergeSortedArrays = (arr1: any, arr2: any) => {
+/* const mergeSortedArrays = (arr1: any, arr2: any) => {
   let new_arr = [];
 
   // inserting all elements from arr1 to new_arr
@@ -26,6 +50,7 @@ const mergeSortedArrays = (arr1: any, arr2: any) => {
 
 let result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
 console.log("result:", result);
+*/
 
 // if string output is wanted
 /**  console.log("result:", result.join(" ")); **/
