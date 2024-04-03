@@ -20,6 +20,7 @@ export enum Message {
   BLOCKED_USER = "You have been blocked!, contact admin for more details!",
   WRONG_PASSWORD = "Wrong Password, please try again!",
   NOTAUTHENTICATED = "You are not authenticated, Please login first!",
+  TOKEN_CREATION_FAILED = "Token creation error!",
 }
 
 // Java Scriptni ichidagi error larga extend bolsin

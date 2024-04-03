@@ -3,9 +3,11 @@ import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors from "../libs/Errors";
+import AuthService from "../models/Auth.service";
 
 // memberService nomli instance oldik MemberService class modelidan.
 const memberService = new MemberService();
+const authService = new AuthService();
 const memberController: T = {};
 
 // call part
@@ -16,6 +18,8 @@ memberController.signup = async (req: Request, res: Response) => {
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
     // TODO: TOKENS AUTHENTICATION
+    const token = await authService.createToken(result);
+    console.log("token:", token);
 
     res.json({ member: result });
   } catch (err) {
@@ -31,8 +35,10 @@ memberController.login = async (req: Request, res: Response) => {
     console.log("login");
 
     const input: LoginInput = req.body,
-      result = await memberService.login(input);
-    // TODO: TOKENS AUTHENTICATION
+      result = await memberService.login(input),
+      //  TOKENS AUTHENTICATION
+      token = await authService.createToken(result);
+    console.log("token:", token);
 
     res.json({ member: result });
   } catch (err) {

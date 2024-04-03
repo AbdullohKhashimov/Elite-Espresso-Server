@@ -53,6 +53,6 @@ app.set("view engine", "ejs");
 
 /** 4- Routers **/
 app.use("/admin", routerAdmin); // BSSR: EJS
-app.use("/", router); // Middleware design pattern : React
+app.use("/", router); // Middleware design pattern : React => SPA
 
 export default app;
