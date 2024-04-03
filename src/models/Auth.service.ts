@@ -4,7 +4,11 @@ import jwt from "jsonwebtoken";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 
 class AuthService {
-  constructor() {}
+  private readonly secretToken;
+
+  constructor() {
+    this.secretToken = process.env.TOKEN_SECRET as string;
+  }
   public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIMER}h`;
@@ -23,6 +27,15 @@ class AuthService {
         }
       );
     });
+  }
+
+  public async checkAuth(token: string): Promise<Member> {
+    const result: Member = (await jwt.verify(
+      token,
+      this.secretToken
+    )) as Member;
+    console.log(`------[AUTH] memberNick: ${result.memberNick} -----`);
+    return result;
   }
 }
 export default AuthService;
