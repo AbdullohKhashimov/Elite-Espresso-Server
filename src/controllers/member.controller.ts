@@ -129,6 +129,8 @@ memberController.retrieveAuth = async (
   } catch (err) {
     console.log("Error, retrieveAuth:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
+
+    /** Hatolik hosil bolsa ham uni log qilgan holda keyingi bosqichga otish **/
     next();
   }
 };
