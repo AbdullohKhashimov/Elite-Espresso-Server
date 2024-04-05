@@ -24,10 +24,11 @@ memberController.signup = async (req: Request, res: Response) => {
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
 
-    // TOKENS AUTHENTICATION
+    /** TOKENS AUTHENTICATION  **/
     const token = await authService.createToken(result);
+    console.log("Token:=>", token);
 
-    // cookie ga token ni joylash
+    /** Browserni ichidagi Cookie ni ichiga token ni joylash  **/
     res.cookie("accessToken", token, {
       maxAge: AUTH_TIMER * 3600 * 1000,
       httpOnly: false,
@@ -48,10 +49,11 @@ memberController.login = async (req: Request, res: Response) => {
 
     const input: LoginInput = req.body,
       result = await memberService.login(input),
-      //  TOKENS AUTHENTICATION
+      /** TOKENS AUTHENTICATION **/
       token = await authService.createToken(result);
+    console.info("token:=>", token);
 
-    // cookie ga token ni joylash
+    /** Browserni ichidagi Cookie ga token ni joylash  **/
     res.cookie("accessToken", token, {
       maxAge: AUTH_TIMER * 3600 * 1000,
       httpOnly: false,
@@ -68,6 +70,7 @@ memberController.login = async (req: Request, res: Response) => {
 memberController.logout = (req: ExtendedRequest, res: Response) => {
   try {
     console.log("Logout");
+
     res.cookie("accessToken", null, { maxAge: 0, httpOnly: true });
     res.status(HttpCode.OK).json({ logout: true });
   } catch (err) {

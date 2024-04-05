@@ -9,12 +9,18 @@ class AuthService {
   constructor() {
     this.secretToken = process.env.TOKEN_SECRET as string;
   }
+
+  /** Token creation **/
+  /** 
+   Payload: contains the claim (or statement) about the entity
+     usually (the user) and additional data 
+  **/
   public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIMER}h`;
       jwt.sign(
         payload,
-        process.env.TOKEN_SECRET as string,
+        this.secretToken,
         {
           expiresIn: duration,
         },
