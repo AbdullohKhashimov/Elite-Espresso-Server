@@ -1,3 +1,25 @@
+/* W-TASK:
+
+Shunday function yozing, uni array va number parametrlari bolsin. 
+Function arrayni numberda berilgan uzunlikda kesib 
+bolaklarga ajratilgan array holatida qaytarsin
+MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+
+@MITASK
+*/
+// n = chunk size
+
+const chunkArray = (arr: [], n: number) => {
+  const new_arr = [];
+  for (let i = 0; i < arr.length; i += n) {
+    new_arr.push(arr.slice(i, i + n));
+  }
+  return new_arr;
+};
+const array: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = chunkArray(array, 3);
+console.log(result);
+
 /* 
 V-TASK:
 
@@ -8,7 +30,7 @@ MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
 @MITASK
 */
-
+/*
 const countChars = (str: any) => {
   const charCount: any = {};
 
@@ -27,6 +49,7 @@ const countChars = (str: any) => {
 const result = countChars("hello");
 console.log("result:", result);
 
+*/
 /** 
  U-TASK:
 
