@@ -1,3 +1,41 @@
+/*
+X-TASK:
+
+Shunday function yozing, uni object va string parapetrlari bolsin. 
+Function string parametri object ichida 
+necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
+ MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+@MITASK
+*/
+
+function countOccurences(obj: any, key: any) {
+  let count = 0;
+
+  function countKeys(val: any) {
+    for (let prop in val) {
+      if (obj.hasOwnProperty(prop)) {
+        if (typeof val[prop] === "object") {
+          countKeys(val[prop]);
+        } else if (prop === key) {
+          count++;
+        }
+      }
+    }
+  }
+  countKeys(obj);
+  return count;
+}
+
+let data = {
+  model: "Bugatti",
+  steer: { model: "HANKOOK", size: "Bugatti" },
+  bmw: { model: "M5 xiDrive", speed: "320kmh" },
+};
+
+const result = countOccurences(data, "model");
+console.log("result:", result);
+
 /* W-TASK:
 
 Shunday function yozing, uni array va number parametrlari bolsin. 
@@ -9,6 +47,8 @@ MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9]
 */
 // n = chunk size
 
+/*
+
 const chunkArray = (arr: [], n: number) => {
   const new_arr = [];
   for (let i = 0; i < arr.length; i += n) {
@@ -19,6 +59,7 @@ const chunkArray = (arr: [], n: number) => {
 const array: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const result = chunkArray(array, 3);
 console.log(result);
+*/
 
 /* 
 V-TASK:
