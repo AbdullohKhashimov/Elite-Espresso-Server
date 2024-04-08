@@ -15,7 +15,7 @@ class AuthService {
    Payload: contains the claim (or statement) about the entity
      usually (the user) and additional data 
   **/
-  public async createToken(payload: Member) {
+  public async createToken(payload: Member): Promise<String> {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIMER}h`;
       jwt.sign(

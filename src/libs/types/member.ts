@@ -47,12 +47,14 @@ export interface MemberUpdateInput {
   memberImage?: string;
 }
 
+// for React => SPA
 export interface ExtendedRequest extends Request {
   member: Member;
   file: Express.Multer.File;
   files: Express.Multer.File[];
 }
 
+// for EJS => SSR
 export interface AdminRequest extends Request {
   member: Member;
   session: Session & { member: Member }; // session ichida member ham bor degan manoni beradi.
