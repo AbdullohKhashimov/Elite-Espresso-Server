@@ -44,7 +44,6 @@ productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
     const data = await productService.getAllProducts();
-    console.log("products:", data);
 
     // renderdagi ikkinchi argument qanday nom bilan yuvorish
     res.render("products", { products: data });

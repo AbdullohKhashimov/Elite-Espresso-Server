@@ -28,6 +28,7 @@ class ProductService {
     }
 
     const sort: T =
+      // dynamic keyni hosil qilib beradi
       inquiry.order === "productPrice"
         ? { [inquiry.order]: 1 }
         : { [inquiry.order]: -1 };
