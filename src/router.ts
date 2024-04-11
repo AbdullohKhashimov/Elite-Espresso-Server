@@ -34,6 +34,12 @@ router.get("/member/top-users", memberController.getTopUsers);
 
 /** Product **/
 router.get("/product/all", productController.getProducts);
+//product view tomosha
+router.get(
+  "/product/:id",
+  memberController.retrieveAuth,
+  productController.getProduct
+);
 
 /** Order **/
 
