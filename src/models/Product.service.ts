@@ -45,7 +45,7 @@ class ProductService {
     const sort: T =
       // [] dynamic keyni hosil qilib beradi
       inquiry.order === "productPrice"
-        ? { [inquiry.order]: 1 }
+        ? { [inquiry.order]: 1 } // [] bularsiz berilgan mantiq string da bob qoladi
         : { [inquiry.order]: -1 };
 
     const result = await this.productModel
@@ -77,7 +77,7 @@ class ProductService {
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
-    // TODO: if authenticated users => first time see => view log creation
+    // if authenticated users => first time see => view log creation
     if (memberId) {
       // Check View Log Existance
       const input: ViewInput = {
@@ -87,7 +87,7 @@ class ProductService {
       };
       const existView = await this.viewService.checkViewExistence(input);
 
-      console.log("exist:", !existView);
+      console.log("exist:", !!existView);
       // Insert View
       if (!existView) {
         console.log("PLANNING TO INSERT NEW VIEW");
