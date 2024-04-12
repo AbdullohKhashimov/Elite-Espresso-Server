@@ -161,6 +161,8 @@ memberController.verifyAuth = async (
   }
 };
 
+// Login bolmagan user bolsa ham keyingi mantiqqa otkazb yuboradi
+// Agar login bolgan user bolsa uni malumotlarini request ga biriktib beradi.
 memberController.retrieveAuth = async (
   req: ExtendedRequest,
   res: Response,
