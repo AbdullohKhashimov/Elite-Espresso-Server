@@ -1,3 +1,26 @@
+/*
+
+Z-TASK:
+
+Shunday function yozing, uni sonlardan tashkil topgan 
+array qabul qilsin. Function arraydagi 
+juft sonlarni yigindisini qaytarsin
+MASALAN: sumEvens([1,2,3]) return 2
+
+*/
+const sumEvens = (arr: number[]) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      sum = sum + arr[i];
+    }
+  }
+  return sum;
+};
+
+const result = sumEvens([1, 2, 3]);
+console.log("result:", result);
+
 /*   
 Y-TASK:
 
@@ -8,7 +31,7 @@ Y-TASK:
 
 @MITASK
 */
-
+/*
 function findIntersection(arr1: number[], arr2: number[]) {
   const intersection: number[] = [];
 
@@ -22,6 +45,7 @@ function findIntersection(arr1: number[], arr2: number[]) {
 }
 const result = findIntersection([1, 2, 3], [3, 2, 0]);
 console.log("result:", result);
+*/
 
 /*
 X-TASK:
