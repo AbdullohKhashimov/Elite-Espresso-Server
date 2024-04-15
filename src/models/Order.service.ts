@@ -24,17 +24,23 @@ class OrderService {
     this.memberService = new MemberService();
   }
 
+  // createOrder ichidagi parameterlar: member: kim ovqat zakaz qilayotganini aniqlash uchun
+  // input kirib kelayotgan buyurtma
   public async createOrder(
     member: Member,
     input: OrderItemInput[]
   ): Promise<Order> {
+    // shaping memberId to mongooseObject id
     const memberId = shapeIntoMongooseObjectId(member._id);
+
+    // delivery fee uchun mantiq. Yani agar buyurtma qilingan ovqat narxi 100$ dan koproq bolsa deliveryFee = 0 aksxolda = 5$
     const amount = input.reduce((accumulator: number, item: OrderItemInput) => {
       return accumulator + item.itemPrice * item.itemQuantity;
     }, 0);
     const delivery = amount < 100 ? 5 : 0;
 
     try {
+      // creation of a new order and its type is Order interface
       const newOrder: Order = await this.orderModel.create({
         orderTotal: amount + delivery,
         orderDelivery: delivery,
@@ -58,11 +64,15 @@ class OrderService {
     orderId: ObjectId,
     input: OrderItemInput[]
   ): Promise<void> {
+    // for loops cannot be used here because they cant work with asynchronous function so map() is used instead
+    // bu mantiqlar hammasi promise of pending orders yani zakaz qilib bolinganidan song ishga tushadi
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
+
+      // qoshimcha secure qilib oliw uchun shape qilib olyabmz
       item.productId = shapeIntoMongooseObjectId(item.productId);
       await this.orderItemModel.create(item);
-      return "inserted";
+      return "INSERTED";
     });
     console.log("promisedList:", promisedList);
     const orderItemsState = await Promise.all(promisedList);
@@ -115,11 +125,11 @@ class OrderService {
 
     const result = await this.orderModel
       .findOneAndUpdate(
-        { memberId: memberId, _id: orderId },
-        { orderStatus: orderStatus },
+        { memberId: memberId, _id: orderId }, // filter
+        { orderStatus: orderStatus }, // nimani update qilish kerakligi
         { new: true }
       )
-      .exec();
+      .exec(); // mantiq bajarilgandan song query ni kesish yani mantiqni davom ettirmasdan done! manosini berish
 
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 

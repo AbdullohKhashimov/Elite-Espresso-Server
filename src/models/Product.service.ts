@@ -50,7 +50,7 @@ class ProductService {
 
     const result = await this.productModel
       .aggregate([
-        { $match: match },
+        { $match: match }, // arrayni ichidagi syntaxlar mongodb ni syntaxlari
         { $sort: sort },
         { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
         { $limit: inquiry.limit * 1 }, // limit bu inquiry ni ichidan kelayotgan limit

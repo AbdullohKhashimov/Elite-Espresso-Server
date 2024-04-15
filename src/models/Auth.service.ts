@@ -7,7 +7,7 @@ class AuthService {
   private readonly secretToken;
 
   constructor() {
-    this.secretToken = process.env.TOKEN_SECRET as string;
+    this.secretToken = process.env.SECRET_TOKEN as string;
   }
 
   /** Token creation **/
