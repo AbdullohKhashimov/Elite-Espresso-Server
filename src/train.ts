@@ -1,11 +1,35 @@
-function sortByAge(arr: number[]) {
+/* 
+ZB-TASK:
+
+Shunday function yozing, uni 2 ta number parametri bolsin
+ va berilgan sonlar orasidan random raqam return qilsin
+MASALAN: randomBetween(30, 50) return 45
+
+@MITASK
+
+*/
+
+function randomNumber(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+const result = randomNumber(30, 50);
+console.log("result:", result);
+
+// agar har doim 45 sonini qaytishni hohlasak:
+/* function random(min: number, max: number) {
+  return 45;
+}
+const number = random(30, 50);
+console.log("number:", number); */
+
+/* function sortByAge(arr: number[]) {
   return arr.sort((a: any, b: any) => a.age - b.age);
 }
 
 let people: any = [{ age: 23 }, { age: 21 }, { age: 13 }];
 const result = sortByAge(people);
 console.log("result:", result);
-
+*/
 /*
 
 Z-TASK:
