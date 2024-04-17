@@ -1,3 +1,11 @@
+function sortByAge(arr: number[]) {
+  return arr.sort((a: any, b: any) => a.age - b.age);
+}
+
+let people: any = [{ age: 23 }, { age: 21 }, { age: 13 }];
+const result = sortByAge(people);
+console.log("result:", result);
+
 /*
 
 Z-TASK:
@@ -8,6 +16,7 @@ juft sonlarni yigindisini qaytarsin
 MASALAN: sumEvens([1,2,3]) return 2
 
 */
+/*
 const sumEvens = (arr: number[]) => {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -20,6 +29,7 @@ const sumEvens = (arr: number[]) => {
 
 const result = sumEvens([1, 2, 3]);
 console.log("result:", result);
+*/
 
 /*   
 Y-TASK:
