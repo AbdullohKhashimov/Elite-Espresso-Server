@@ -24,7 +24,7 @@ class MemberService {
   /** SPA **/
 
   /*
-   *promise(void) : typescript bolganligi uchun bu method hech nmaani qaytarmaslik uchun yozilgan shart
+   *promise(void) : (void) hech nimani return qilmasligi uchun bu yozilgan nimadur return qilish kerak bolsa ushani interface ni yozib qoyamiz.
    *agar async function bolmasa demak promise ishlatmimiz
    *processSignup functionini parameteriga input ni pass qilamiz va uning type MemberInput  */
 
