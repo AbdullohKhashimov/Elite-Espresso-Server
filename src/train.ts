@@ -1,4 +1,22 @@
 /* 
+ZC-TASK:
+
+Shunday function yozing, uni number parametri bolsin
+ va function qabul parametrni selsiy miqdori
+  sifatida qabul qilib uni farenhitga ozgartirib bersin
+MASALAN: celsiusToFahrenheit(0) return 32
+
+@MITASK
+*/
+
+function celsiusToFahrenheit(celsius: number) {
+  const fahrenheit = (celsius * 9) / 5 + 32;
+  return fahrenheit;
+}
+const result = celsiusToFahrenheit(0);
+console.log(result);
+
+/* 
 ZB-TASK:
 
 Shunday function yozing, uni 2 ta number parametri bolsin
@@ -8,12 +26,12 @@ MASALAN: randomBetween(30, 50) return 45
 @MITASK
 
 */
-
+/*
 function randomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 const result = randomNumber(30, 50);
-console.log("result:", result);
+console.log("result:", result); */
 
 // agar har doim 45 sonini qaytishni hohlasak:
 /* function random(min: number, max: number) {
