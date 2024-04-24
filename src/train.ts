@@ -1,3 +1,26 @@
+/*
+ZD-TASK:
+
+Shunday function yozing, uni number, 
+array va number parametrlari bolsin 
+va berilgan 1-parametr numberga teng 
+indexni array ichidan topib 3-parametrdagi 
+raqam bilan almashtirib yangilangan arrayni qaytarsin
+MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+
+@MITASK
+
+*/
+function changeNumberInArray(index: any, value: any, newVal: any) {
+  if (index >= 0 && index < value.length) {
+    value[index] = newVal;
+  }
+  return value;
+}
+
+const result = changeNumberInArray(1, [1, 3, 7, 2], 2);
+console.log(result);
+
 /* 
 ZC-TASK:
 
@@ -8,13 +31,14 @@ MASALAN: celsiusToFahrenheit(0) return 32
 
 @MITASK
 */
-
+/*
 function celsiusToFahrenheit(celsius: number) {
   const fahrenheit = (celsius * 9) / 5 + 32;
   return fahrenheit;
 }
 const result = celsiusToFahrenheit(0);
 console.log(result);
+*/
 
 /* 
 ZB-TASK:
