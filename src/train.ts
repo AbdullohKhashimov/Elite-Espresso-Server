@@ -1,3 +1,44 @@
+/* ZE-TASK:
+
+Shunday function yozing, uni  string parametri bolsin. 
+String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+MASALAN: removeDuplicate('stringg') return 'string'
+
+@MITASK
+
+*/
+
+function removeDuplicate(str: any) {
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (result.indexOf(str[i]) === -1) {
+      result += str[i];
+    }
+  }
+  return result;
+}
+
+const result = removeDuplicate("stringg");
+console.log("result:", result);
+
+// solution 2:
+/*function remDuplicate(str: any) {
+  let result = "";
+  let encountered: any = {};
+  for (let char of str) {
+    if (!encountered[char]) {
+      result += char;
+      encountered[char] = true;
+    }
+  }
+  return result;
+}
+
+const res = remDuplicate("Martinn");
+console.log("result:", res);
+*/
+
 /*
 ZD-TASK:
 
@@ -11,15 +52,19 @@ MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
 @MITASK
 
 */
+/*
 function changeNumberInArray(index: any, value: any, newVal: any) {
   if (index >= 0 && index < value.length) {
     value[index] = newVal;
   }
+
+
   return value;
 }
 
 const result = changeNumberInArray(1, [1, 3, 7, 2], 2);
 console.log(result);
+*/
 
 /* 
 ZC-TASK:
