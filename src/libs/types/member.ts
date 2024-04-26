@@ -1,13 +1,12 @@
-import { MemberStatus, MemberType } from "../enums/member.enum";
 import { ObjectId } from "mongoose";
+import { MemberStatus, MemberType } from "../enums/member.enum";
 import { Request } from "express";
 import { Session } from "express-session";
 
 export interface Member {
-  // ObjectId ni mongoose dan olamz
   _id: ObjectId;
-  memberType?: MemberType;
-  memberStatus?: MemberStatus;
+  memberType: MemberType;
+  memberStatus: MemberStatus;
   memberNick: string;
   memberPhone: string;
   memberPassword?: string;
@@ -47,17 +46,15 @@ export interface MemberUpdateInput {
   memberImage?: string;
 }
 
-// for React => SPA
 export interface ExtendedRequest extends Request {
   member: Member;
   file: Express.Multer.File;
   files: Express.Multer.File[];
 }
 
-// for EJS => SSR
 export interface AdminRequest extends Request {
   member: Member;
-  session: Session & { member: Member }; // session ichida member ham bor degan manoni beradi.
+  session: Session & { member: Member };
   file: Express.Multer.File;
   files: Express.Multer.File[];
 }

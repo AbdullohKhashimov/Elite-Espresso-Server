@@ -20,16 +20,15 @@ export interface Order {
   memberId: ObjectId;
   createdAt: Date;
   updatedAt: Date;
-
   /** from aggregations **/
   orderItems: OrderItem[];
   productData: Product[];
 }
 
 export interface OrderItemInput {
-  productId: ObjectId;
   itemQuantity: number;
   itemPrice: number;
+  productId: ObjectId;
   orderId?: ObjectId;
 }
 
@@ -39,7 +38,7 @@ export interface OrderInquiry {
   orderStatus: OrderStatus;
 }
 
-export interface orderUpdateInput {
-  orderId: String;
+export interface OrderUpdateInput {
+  orderId: string;
   orderStatus: OrderStatus;
 }

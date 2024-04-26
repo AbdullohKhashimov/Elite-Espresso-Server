@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import { Response } from "express";
 import Errors, { HttpCode } from "../libs/Errors";
 import OrderService from "../models/Order.service";
-import { OrderInquiry, orderUpdateInput } from "../libs/types/order";
+import { OrderInquiry, OrderUpdateInput } from "../libs/types/order";
 import { OrderStatus } from "../libs/enums/order.enum";
 
 const orderService = new OrderService();
@@ -50,7 +50,7 @@ orderController.updateOrder = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("updateOrder");
 
-    const input: orderUpdateInput = req.body;
+    const input: OrderUpdateInput = req.body;
 
     const result = await orderService.updateOrder(req.member, input);
 

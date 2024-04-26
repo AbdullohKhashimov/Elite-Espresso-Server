@@ -43,10 +43,9 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <!--  LOOP PRODUCTS: START  -->
-            <% products.map(function(value, key){ %>
+            <% products.map(function(value, key) { %>
             <tbody style="background: white">
-              <td><%= key + 1%></td>
+              <td><%= key + 1 %></td>
               <td><%= value.productName %></td>
               <td><%= value.productCollection %></td>
               <td>
@@ -58,16 +57,15 @@
               <td>
                 <select
                   class="spec-select new-product-status"
-                  id="<%= value._id %>" >
-                  <option value="PAUSE" <%= value.productStatus === "PAUSE" ? "selected": "" %> >PAUSE</option>
-                  <option value="PROCESS" <%= value.productStatus === "PROCESS" ? "selected": "" %> >PROCESS</option>
-                  <option value="DELETE" <%= value.productStatus === "DELETE" ? "selected": "" %> >DELETE</option>
+                  id="<%= value._id %>"
+                >
+                  <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected': '' %> >PAUSE</option>
+                  <option value="PROCESS" <%= value.productStatus === 'PROCESS' ? 'selected': '' %> >PROCESS</option>
+                  <option value="DELETE" <%= value.productStatus === 'DELETE' ? 'selected': '' %>>DELETE</option>
                 </select>
               </td>
             </tbody>
             <% }) %>
-
-            <!--  LOOP PRODUCTS: END  -->
           </table>
           <div
             class="long-input"
@@ -78,8 +76,9 @@
             </button>
           </div>
         </div>
+
         <form
-          onsubmit="return validateForm()"
+        onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
@@ -131,7 +130,7 @@
               <select class="product-collection" name="productCollection">
                 <option value="DISH" selected>Dish</option>
                 <option value="SALAD">Salad</option>
-                <option value="DESERT">Desert</option>
+                <option value="DESSERT">Dessert</option>
                 <option value="DRINK">Drink</option>
                 <option value="OTHER">Other</option>
               </select>
