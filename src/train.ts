@@ -1,3 +1,28 @@
+/*
+ZF-TASK
+
+Shunday function yozing, uni string parameteri bolsin. String ichidagi har bir 
+sozni bosh harfilarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan 
+iborat sozlarni esa oz holicha qaytarsin 
+masalan: capitalizeWords("name should be string") return Name Should be a String
+
+*/
+
+function capitalizeWords(str: string) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => {
+      if (word.length <= 2) {
+        return word;
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
+
+const result = capitalizeWords("name should be a string");
+console.log(result);
 /* ZE-TASK:
 
 Shunday function yozing, uni  string parametri bolsin. 
@@ -8,7 +33,7 @@ MASALAN: removeDuplicate('stringg') return 'string'
 
 */
 
-function removeDuplicate(str: any) {
+/* function removeDuplicate(str: any) {
   let result = "";
 
   for (let i = 0; i < str.length; i++) {
@@ -20,7 +45,7 @@ function removeDuplicate(str: any) {
 }
 
 const result = removeDuplicate("stringg");
-console.log("result:", result);
+console.log("result:", result); */
 
 // solution 2:
 /*function remDuplicate(str: any) {
