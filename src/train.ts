@@ -1,3 +1,22 @@
+/* 
+ZG-TASK:
+
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+
+@MITASK
+
+*/
+
+function snakeWords(str: string) {
+  let words = str.split(" ");
+  let capitalize = words.map(function (word) {
+    return word.charAt(0).toLowerCase() + word.slice(1);
+  });
+  return capitalize.join("_");
+}
+const result = snakeWords("name should be a string");
+console.log("result:", result);
 /*
 ZF-TASK
 
@@ -8,6 +27,7 @@ masalan: capitalizeWords("name should be string") return Name Should be a String
 
 */
 
+/*
 function capitalizeWords(str: string) {
   return str
     .toLowerCase()
@@ -23,6 +43,8 @@ function capitalizeWords(str: string) {
 
 const result = capitalizeWords("name should be a string");
 console.log(result);
+*/
+
 /* ZE-TASK:
 
 Shunday function yozing, uni  string parametri bolsin. 
