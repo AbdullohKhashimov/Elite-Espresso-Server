@@ -1,3 +1,30 @@
+/*
+ZH-TASK:
+
+Shunday function yozing, u berilgan array parametrni 
+ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+
+@MITASK
+
+*/
+
+function findDisappearedNumbers(arr: number[]): number[] {
+  const maxNum: number = Math.max(...arr); // Berilgan massivdagi eng katta raqam
+  const missingNumbers: number[] = [];
+
+  for (let i = 1; i < maxNum; i++) {
+    if (!arr.includes(i)) {
+      missingNumbers.push(i);
+    }
+  }
+
+  return missingNumbers;
+}
+
+const result = findDisappearedNumbers([1, 3, 4, 7]);
+console.log("result:", result);
+
 /* 
 ZG-TASK:
 
@@ -8,7 +35,7 @@ MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_str
 
 */
 
-function snakeWords(str: string) {
+/* function snakeWords(str: string) {
   let words = str.split(" ");
   let capitalize = words.map(function (word) {
     return word.charAt(0).toLowerCase() + word.slice(1);
@@ -17,6 +44,7 @@ function snakeWords(str: string) {
 }
 const result = snakeWords("name should be a string");
 console.log("result:", result);
+*/
 /*
 ZF-TASK
 
