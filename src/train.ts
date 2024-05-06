@@ -1,4 +1,24 @@
 /*
+Shunday function yozing, u function ishga tushganda 
+3 soniyadan keyin "Hello World " ni qaytarsin. 
+
+Masalan: delayHelloWorld("Hello World") return "Hello World"
+
+*/
+
+async function delayHelloWorld(message: string): Promise<void> {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      console.log(message);
+      resolve();
+    }, 3000);
+  });
+}
+
+const result = delayHelloWorld("Hello World");
+console.log("result:", result);
+
+/*
 ZH-TASK:
 
 Shunday function yozing, u berilgan array parametrni 
@@ -9,7 +29,7 @@ MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
 */
 
-function findDisappearedNumbers(arr: number[]): number[] {
+/* function findDisappearedNumbers(arr: number[]): number[] {
   const maxNum: number = Math.max(...arr); // Berilgan massivdagi eng katta raqam
   const missingNumbers: number[] = [];
 
@@ -21,9 +41,11 @@ function findDisappearedNumbers(arr: number[]): number[] {
 
   return missingNumbers;
 }
-
+*/
+/*
 const result = findDisappearedNumbers([1, 3, 4, 7]);
 console.log("result:", result);
+/*
 
 /* 
 ZG-TASK:
