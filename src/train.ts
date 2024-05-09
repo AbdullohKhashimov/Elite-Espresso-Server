@@ -1,8 +1,33 @@
+/*
+ 
+ ZK-TASK:
+
+Shunday function yozing, u har soniyada bir marta consolega 
+1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
+MASALAN: printNumbers()
+ */
+
+function printNumbers(): void {
+  // loops through the numbers from to 5
+  // and exits the iteration when it reaches 5
+  for (let i = 1; i < 6; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, i * 1000);
+  }
+  setTimeout(() => {
+    const message: string = "Iteration is done!";
+    console.log(message);
+  }, 6000);
+}
+
+printNumbers();
+
 /* ZJ-TASK:
  Shunday function yozing, u berilgan arrayni ichidagi numberlarni qiymatini hisoblab qaytarsin.
 MASALAN: reduceNestedArray([1, [1, 2, [4]]]) return 8
 */
-
+/* 
 function reduceNestedArray(arr: any[]): number {
   return arr.reduce((sum, item) => {
     if (Array.isArray(item)) {
@@ -14,6 +39,8 @@ function reduceNestedArray(arr: any[]): number {
 }
 const result = reduceNestedArray([1, [1, 2, [4]]]); // 8)
 console.log("result:", result);
+*/
+
 /*
 Shunday function yozing, u function ishga tushganda 
 3 soniyadan keyin "Hello World " ni qaytarsin. 
