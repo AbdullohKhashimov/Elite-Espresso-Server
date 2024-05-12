@@ -1,4 +1,27 @@
 /*
+ZL-TASK:
+
+Shunday function yozing, u parametrda berilgan 
+stringni kebab casega otkazib qaytarsin. 
+Bosh harflarni kichik harflarga ham otkazsin.
+MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+
+@MITASK
+
+*/
+
+function stringToKebab(str: string) {
+  let new_str = str.split(" ");
+  let toLower = new_str.map(function (letter) {
+    return letter.charAt(0).toLocaleLowerCase() + letter.slice(1);
+  });
+  return toLower.join("-");
+}
+
+const result = stringToKebab("I Love Kebab");
+console.log("result:", result);
+
+/*
  
  ZK-TASK:
 
@@ -7,6 +30,7 @@ Shunday function yozing, u har soniyada bir marta consolega
 MASALAN: printNumbers()
  */
 
+/*
 function printNumbers(): void {
   // loops through the numbers from to 5
   // and exits the iteration when it reaches 5
@@ -22,6 +46,7 @@ function printNumbers(): void {
 }
 
 printNumbers();
+*/
 
 /* ZJ-TASK:
  Shunday function yozing, u berilgan arrayni ichidagi numberlarni qiymatini hisoblab qaytarsin.
