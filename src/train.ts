@@ -1,4 +1,28 @@
 /*
+ZM-TASK:
+
+Shunday function yozing, u function parametrga
+ berilgan raqamlarni orqasiga ogirib qaytarsin.
+MASALAN: reverseInteger(123456789) return 987654321
+
+@MITASK
+
+*/
+
+function reverseInteger(num: number) {
+  // variable to store reversed integer
+  let reversed = 0;
+  // the while loop continues untill 'num' becomes 0.
+  while (num !== 0) {
+    reversed = reversed * 10 + (num % 10);
+    num = Math.trunc(num / 10);
+  }
+  return reversed;
+}
+
+const result = reverseInteger(123456789);
+console.log("result:", result);
+/*
 ZL-TASK:
 
 Shunday function yozing, u parametrda berilgan 
@@ -10,6 +34,7 @@ MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 
 */
 
+/*
 function stringToKebab(str: string) {
   let new_str = str.split(" ");
   let toLower = new_str.map(function (letter) {
@@ -20,6 +45,7 @@ function stringToKebab(str: string) {
 
 const result = stringToKebab("I Love Kebab");
 console.log("result:", result);
+*/
 
 /*
  
