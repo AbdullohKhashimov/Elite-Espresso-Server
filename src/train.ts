@@ -1,4 +1,26 @@
 /*
+Shunday function yozing, uni array va number parametri bolsin. 
+Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
+
+*/
+
+function rotateArray(arr: number[], index: number): number[] {
+  if (index < 0 || index >= arr.length) {
+    throw new Error("Index out of bounds");
+  }
+
+  // Slice the array into two parts and concatenate them in reverse order
+  const fPart = arr.slice(index + 1);
+  const sPart = arr.slice(0, index + 1);
+
+  return [...fPart, ...sPart];
+}
+
+const result = rotateArray([1, 2, 3, 4, 5, 6], 3);
+console.log("result:", result);
+
+/*
 ZM-TASK:
 
 Shunday function yozing, u function parametrga
@@ -8,6 +30,8 @@ MASALAN: reverseInteger(123456789) return 987654321
 @MITASK
 
 */
+
+/*
 
 function reverseInteger(num: number) {
   // variable to store reversed integer
@@ -22,7 +46,10 @@ function reverseInteger(num: number) {
 
 const result = reverseInteger(123456789);
 console.log("result:", result);
+*/
+
 /*
+
 ZL-TASK:
 
 Shunday function yozing, u parametrda berilgan 
