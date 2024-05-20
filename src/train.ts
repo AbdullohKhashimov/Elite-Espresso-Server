@@ -1,4 +1,28 @@
 /*
+ZP-TASK:
+
+Shunday function yozing, u parametridagi 
+array ichida eng kop takrorlangan raqamni topib qaytarsin.
+MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+
+@MITASK
+*/
+
+function majorityElement(arr: any) {
+  const counts = arr.reduce((acc: any, num: any) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+
+  return Object.keys(counts).reduce((a: any, b: any) =>
+    counts[a] > counts[b] ? a : b
+  );
+}
+
+const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+console.log("result:", result);
+
+/*
 ZO-TASK:
 
 Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori 
@@ -8,6 +32,7 @@ MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return 
 
 */
 
+/*
 function areParenthesesBalanced(s: string): boolean {
   const stack: string[] = [];
 
@@ -26,6 +51,7 @@ function areParenthesesBalanced(s: string): boolean {
 
 const result = areParenthesesBalanced("string()ichida(qavslar)soni()balansda");
 console.log("result:", result);
+*/
 
 /*
 ZN-Task
