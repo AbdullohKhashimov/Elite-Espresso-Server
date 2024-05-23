@@ -1,4 +1,38 @@
 /*
+
+ZQ-TASK:
+
+Shunday function yozing, u parametiriadgi 
+array ichida 2 marta qaytarilgan sonlarni alohida arrayda
+qaytarsin. MASLAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3,4]
+
+*/
+
+function findDuplicates(arr: number[]): number[] {
+  const countMap = new Map<number, number>();
+  const duplicates: number[] = [];
+
+  for (const num of arr) {
+    if (countMap.has(num)) {
+      countMap.set(num, countMap.get(num)! + 1);
+    } else {
+      countMap.set(num, 1);
+    }
+  }
+
+  for (const num of arr) {
+    if (countMap.get(num)! > 1 && !duplicates.includes(num)) {
+      duplicates.push(num);
+    }
+  }
+
+  return duplicates;
+}
+
+const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]);
+console.log("result:", result);
+
+/*
 ZP-TASK:
 
 Shunday function yozing, u parametridagi 
@@ -8,6 +42,7 @@ MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
 @MITASK
 */
 
+/*
 function majorityElement(arr: any) {
   const counts = arr.reduce((acc: any, num: any) => {
     acc[num] = (acc[num] || 0) + 1;
@@ -21,6 +56,7 @@ function majorityElement(arr: any) {
 
 const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
 console.log("result:", result);
+*/
 
 /*
 ZO-TASK:
