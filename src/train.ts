@@ -1,4 +1,34 @@
 /*
+ZR-TASK:
+
+Shunday function yozing, u parametridagi 
+string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) 
+return {number:3, letter:6}
+
+@MITASK
+
+*/
+function countNumberAndLetters(input: string): {
+  number: number;
+  letter: number;
+} {
+  let count = { number: 0, letter: 0 };
+
+  for (let char of input) {
+    if (/[0-9]/.test(char)) {
+      count.number++;
+    } else if (/[a-zA-Z]/.test(char)) {
+      count.letter++;
+    }
+  }
+  return count;
+}
+
+const result = countNumberAndLetters("string152%¥");
+console.log(result); // Output: { number: 3, letter: 6 }
+
+/*
 
 ZQ-TASK:
 
@@ -8,7 +38,7 @@ qaytarsin. MASLAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3,4]
 
 */
 
-function findDuplicates(arr: number[]): number[] {
+/* function findDuplicates(arr: number[]): number[] {
   const countMap = new Map<number, number>();
   const duplicates: number[] = [];
 
@@ -31,6 +61,7 @@ function findDuplicates(arr: number[]): number[] {
 
 const result = findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]);
 console.log("result:", result);
+*/
 
 /*
 ZP-TASK:
