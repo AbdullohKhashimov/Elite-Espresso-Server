@@ -1,3 +1,20 @@
+/* 
+ZS-TASK:
+
+Shunday function yozing, u parametridagi 
+arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+
+@MITASK
+
+*/
+function singleNumber(arr: number[]) {
+  return arr.filter((i) => arr.filter((j) => i === j).length === 1);
+}
+
+const result = singleNumber([4, 2, 1, 2, 1]);
+console.log(result);
+
 /*
 ZR-TASK:
 
@@ -9,6 +26,8 @@ return {number:3, letter:6}
 @MITASK
 
 */
+
+/*
 function countNumberAndLetters(input: string): {
   number: number;
   letter: number;
@@ -27,6 +46,8 @@ function countNumberAndLetters(input: string): {
 
 const result = countNumberAndLetters("string152%¥");
 console.log(result); // Output: { number: 3, letter: 6 }
+
+*/
 
 /*
 
