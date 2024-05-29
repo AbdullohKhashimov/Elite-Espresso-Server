@@ -8,12 +8,43 @@ MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
 @MITASK
 
 */
+
+/** Hash map usulida arrayni ichida bir marta kelgan elementni topish function() **/
+
+function singleNumber(nums: number[]): number {
+  // count variable to store the occurence of an element in the array and it stores them as key and value
+  const count: { [key: number]: number } = {};
+
+  // counting the elements
+  for (const num of nums) {
+    if (count[num]) {
+      count[num] += 1;
+    } else {
+      count[num] = 1;
+    }
+  }
+
+  // 1 marta uchragan elementni topish
+  for (const num of nums) {
+    if (count[num] === 1) {
+      return num;
+    }
+  }
+  return -1;
+}
+
+const result = singleNumber([4, 1, 2, 2, 1]);
+console.log("result:", result);
+
+/** Solution 2 filter ni ikki marotaba ishlatib **/
+/*
 function singleNumber(arr: number[]) {
   return arr.filter((i) => arr.filter((j) => i === j).length === 1);
 }
 
 const result = singleNumber([4, 2, 1, 2, 1]);
 console.log(result);
+*/
 
 /*
 ZR-TASK:
