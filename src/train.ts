@@ -1,3 +1,36 @@
+/*
+ZT-TASK:
+
+Shunday function yozing, u parametridagi string ichida
+ 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+MASALAN: firstUniqueCharIndex(“stamp”) return 0
+
+@MITASK
+*/
+
+function firstUniqueCharIndex(str: string) {
+  const charCount: { [key: string]: number } = {};
+
+  // counting the occurences of each character in the string
+  for (let char of str) {
+    if (charCount[char] !== undefined) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+  // finding the index of the first unique character
+  for (let i = 0; i < str.length; i++) {
+    if (charCount[str[i]] === 1) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+const result = firstUniqueCharIndex("stamp");
+console.log("result:", result);
+
 /* 
 ZS-TASK:
 
@@ -11,7 +44,7 @@ MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
 
 /** Hash map usulida arrayni ichida bir marta kelgan elementni topish function() **/
 
-function singleNumber(nums: number[]): number {
+/* function singleNumber(nums: number[]): number {
   // count variable to store the occurence of an element in the array and it stores them as key and value
   const count: { [key: number]: number } = {};
 
@@ -35,6 +68,8 @@ function singleNumber(nums: number[]): number {
 
 const result = singleNumber([4, 1, 2, 2, 1]);
 console.log("result:", result);
+
+*/
 
 /** Solution 2 filter ni ikki marotaba ishlatib **/
 /*
