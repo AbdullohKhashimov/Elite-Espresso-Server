@@ -1,4 +1,39 @@
 /*
+ZU-TASK:
+
+Shunday function yozing, u parametridagi 
+array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+MASALAN: sumOfUnique([1,2,3,2]) return 4
+
+@MITASK
+*/
+
+function sumOfUnique(nums: number[]): number {
+  const frequency: { [key: number]: number } = {};
+
+  // counting the occurences of each element
+  for (const num of nums) {
+    if (frequency[num] !== undefined) {
+      frequency[num] += 1;
+    } else {
+      frequency[num] = 1;
+    }
+  }
+
+  // sum the elements that appear exactly once
+  let countUnique = 0;
+  for (const num in frequency) {
+    if (frequency[num] === 1) {
+      countUnique += parseInt(num);
+    }
+  }
+  return countUnique;
+}
+
+const result = sumOfUnique([1, 2, 3, 2]);
+console.log("result:", result);
+
+/*
 ZT-TASK:
 
 Shunday function yozing, u parametridagi string ichida
@@ -8,6 +43,7 @@ MASALAN: firstUniqueCharIndex(“stamp”) return 0
 @MITASK
 */
 
+/*
 function firstUniqueCharIndex(str: string) {
   const charCount: { [key: string]: number } = {};
 
@@ -30,6 +66,7 @@ function firstUniqueCharIndex(str: string) {
 
 const result = firstUniqueCharIndex("stamp");
 console.log("result:", result);
+*/
 
 /* 
 ZS-TASK:
