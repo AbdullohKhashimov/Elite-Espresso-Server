@@ -1,12 +1,21 @@
 .home-container {
-  position: relative;
-  width: auto;
-  height: auto;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(-45deg, #110303f0, #dd6d04, #011c1afc, #7a6868);
+  animation: blackFade 4s infinite;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+@keyframes blackFade {
+  0% {
+    background-color: #808080; /* Grayish background color */
+  }
+  50% {
+    background-color: #000000; /* Black */
+  }
+  100% {
+    background-color: #808080; /* Grayish background color */
+  }
 }
 
 .home-container a {
@@ -29,39 +38,116 @@
   font-size: 40px;
   font-family: monospace;
 }
+.home-container body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
 
-.home-container .animation-frame {
-  position: relative;
+.easing-visualizer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 55px;
+  justify-content: space-between;
+  width: 910px;
+  height: 455px;
+  margin: -227px 0 0 -455px;
 }
 
-.home-container .animation-wrapper {
-  position: relative;
-  width: 775px;
-  height: 775px;
+.easing-visualizer .wrapper {
+  position: absolute;
+  bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
-.home-container .sphere-animation {
+.bars-wrapper,
+.dots-wrapper {
+  transform: translateZ(0);
+}
+
+.easing-visualizer .bar {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  background-image: linear-gradient(
+    180deg,
+    #373734 0%,
+    #242423 52%,
+    #0d0d0c 100%
+  );
+  transform-origin: 20% 50%;
+}
+
+.easing-visualizer .dot {
   position: relative;
-  width: 580px;
-  height: 580px;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  background-color: currentColor;
+  border-radius: 50%;
 }
 
-.home-container .sphere path {
-  fill: url(#sphereGradient);
-  stroke-width: 1px;
-  stroke: rgba(80, 80, 80, 0.35);
-  backface-visibility: hidden;
+.animation-wrapper {
+  width: 100%;
+  max-width: 70%;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
-@media (min-width: 500px) {
-  .sphere path {
-    stroke-width: 0.4px;
-  }
+.easing-visualizer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 910px;
+  height: 455px;
+  margin: -227px 0 0 -455px;
+}
+
+.easing-visualizer .wrapper {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.bars-wrapper,
+.dots-wrapper {
+  transform: translateZ(0);
+}
+
+.easing-visualizer .bar {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  background-image: linear-gradient(
+    180deg,
+    #373734 0%,
+    #242423 52%,
+    #0d0d0c 100%
+  );
+  transform-origin: 50% 50%;
+}
+
+.easing-visualizer .dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  background-color: rgb(94, 4, 4);
+  border-radius: 50%;
 }

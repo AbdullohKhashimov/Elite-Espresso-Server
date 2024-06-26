@@ -1,22 +1,21 @@
-console.log("Signup frontend javascript file");
+console.log("Signup front javascript file");
 
-// image preload mantigi
+/**  Uploading image check (pre-render) **/
+// helps the user to check what kind of picture is being uploaded before uploading
 $(function () {
   const fileTarget = $(".file-box .upload-hidden");
   let filename;
 
-  // event handler
   fileTarget.on("change", function () {
-    // window/fileReader state property
     if (window.FileReader) {
-      const uploadFile = $(this)[0].files[0],
-        fileType = uploadFile["type"],
-        validImageType = ["image/jpg", "image/jpeg", "image/png"];
-      if (!validImageType.includes(fileType)) {
-        alert("Please insert only jpeg, jpg and png ");
+      const uploadFile = $(this)[0].files[0];
+
+      const fileType = uploadFile["type"];
+      const validImgType = ["image/jpg", "image/jpeg", "image/png"];
+      if (!validImgType.includes(fileType)) {
+        alert("Please check the image types");
       } else {
         if (uploadFile) {
-          // yuklangan uploadFile orqali url hosil qilish
           console.log(URL.createObjectURL(uploadFile));
           $(".upload-img-frame")
             .attr("src", URL.createObjectURL(uploadFile))
@@ -29,8 +28,7 @@ $(function () {
   });
 });
 
-// front-end signup validation
-function validateSignupForm() {
+function signupFormValidation() {
   const memberNick = $(".member-nick").val(),
     memberPhone = $(".member-phone").val(),
     memberPassword = $(".member-password").val(),
@@ -42,20 +40,21 @@ function validateSignupForm() {
     memberPassword === "" ||
     confirmPassword === ""
   ) {
-    alert("Please insert all required inputs");
-    return false;
-  }
-  if (memberPassword !== confirmPassword) {
-    alert("Password differs, please check");
+    alert("Please fill in all the required inputs!");
     return false;
   }
 
-  // prerender mantigini validate qismi
-  const memberImage = $(".member-image").get(0).files[0].name
+  if (memberPassword !== confirmPassword) {
+    alert("Password does not match, Please check again!");
+    return false;
+  }
+  /**  image pre-render validation **/
+  const memberImage = $(".member-image").get(0).files[0]
     ? $(".member-image").get(0).files[0].name
     : null;
+
   if (!memberImage) {
-    alert("Please insert restaurant image!");
+    alert("Please upload restaurant image!");
     return false;
   }
 }

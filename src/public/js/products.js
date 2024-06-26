@@ -1,13 +1,20 @@
-console.log("Products frontend javascript file");
+console.log("Products frontend javascript file!");
 
 $(function () {
   $(".product-collection").on("change", () => {
     const selectedValue = $(".product-collection").val();
-    if (selectedValue === "DRINK") {
+
+    if (selectedValue === "COFFEE" || selectedValue === "SMOOTHIE") {
       $("#product-volume").show();
+      $("#product-collection").hide();
+      $("#cake-size").hide();
+    } else if (selectedValue === "CAKE") {
+      $("#cake-size").show();
+      $("#product-volume").hide();
       $("#product-collection").hide();
     } else {
       $("#product-volume").hide();
+      $("#cake-size").hide();
       $("#product-collection").show();
     }
   });
@@ -18,38 +25,46 @@ $(function () {
   });
 
   $("#cancel-btn").on("click", () => {
-    $(".dish-container").slideToggle(200);
+    $(".dish-container").slideToggle(400);
     $("#process-btn").css("display", "flex");
   });
 
+  // async function because axios will be in use
   $(".new-product-status").on("change", async function (e) {
     const id = e.target.id;
     const productStatus = $(`#${id}.new-product-status`).val();
+
+    console.log("id:", id);
+    console.log("productStatus:", productStatus);
 
     try {
       const response = await axios.post(`/admin/product/${id}`, {
         productStatus: productStatus,
       });
-      console.log(response);
+
+      console.log("response:", response);
+
       const result = response.data;
       if (result.data) {
         $(".new-product-status").blur();
-      } else alert("Product update failed!");
+      } else {
+        alert("product update failed");
+      }
     } catch (err) {
-      console.log(err);
-      alert("Product update failed");
+      console.log("error productStatus:", err);
+      alert("Product update failed!");
     }
   });
 });
 
-// product creation validation form
 function validateForm() {
   const productName = $(".product-name").val(),
     productPrice = $(".product-price").val(),
     productLeftCount = $(".product-left-count").val(),
     productCollection = $(".product-collection").val(),
     productDesc = $(".product-desc").val(),
-    productStatus = $(".product-status").val();
+    productStatus = $(".product-status").val(),
+    cakeSize = $(".cake-size").val();
 
   if (
     productName === "" ||
@@ -57,26 +72,30 @@ function validateForm() {
     productLeftCount === "" ||
     productCollection === "" ||
     productDesc === "" ||
-    productStatus === ""
+    productStatus === "" ||
+    cakeSize === ""
   ) {
-    alert("Please insert all details");
+    alert("Please insert all required fields!");
     return false;
   } else {
     return true;
   }
 }
 
-// preview product image
+/**  Product image pre-render check  **/
 function previewFileHandler(input, order) {
   const imgClassName = input.className;
-  console.log("input:", input);
+  console.log("imgClassName:", imgClassName);
 
-  const file = $(`.${imgClassName}`).get(0).files[0],
-    fileType = file["type"],
-    validImageType = ["image/jpg", "image/jpeg", "image/png"];
+  const file = $(`.${imgClassName}`).get(0).files[0];
 
-  if (!validImageType.includes(fileType)) {
-    alert("Please insert only jpg, jpeg and png");
+  const fileType = file["type"];
+
+  /**  image validation **/
+  const validImgType = ["image/jpg", "image/jpeg", "image/png", "image/webp"];
+
+  if (!validImgType.includes(fileType)) {
+    alert("Please insert only [jpeg, jpg, webp and png]");
   } else {
     if (file) {
       const reader = new FileReader();

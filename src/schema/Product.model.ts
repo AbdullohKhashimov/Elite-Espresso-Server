@@ -4,6 +4,7 @@ import {
   ProductSize,
   ProductCollection,
   ProductStatus,
+  CakeSize,
 } from "../libs/enums/product.enum";
 
 const productSchema = new Schema(
@@ -44,7 +45,13 @@ const productSchema = new Schema(
     productVolume: {
       type: Number,
       enum: ProductVolume,
-      default: ProductVolume.ONE,
+      default: ProductVolume.ZERO_POINT_THREE,
+    },
+
+    cakeSize: {
+      type: String,
+      enum: CakeSize,
+      default: CakeSize.PIECE,
     },
 
     productDesc: {

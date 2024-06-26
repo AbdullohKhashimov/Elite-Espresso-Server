@@ -1,11 +1,9 @@
-<%- include('includes/header') %>
-
+<%- include('includes/header.ejs') %>
 <link rel="stylesheet" type="text/css" href="/css/signup.css" />
-
 <body>
   <div class="signup-container">
     <form
-      onsubmit="return validateSignupForm()"
+      onsubmit="return signupFormValidation()"
       action="/admin/signup"
       method="POST"
       enctype="multipart/form-data"
@@ -22,7 +20,7 @@
 
         <div class="sign-input-frame" style="justify-content: space-between">
           <div class="sign-up-frame">
-            <label>Restaurant *</label>
+            <label>Cafe Admin :</label>
             <input
               type="text"
               name="memberNick"
@@ -32,7 +30,7 @@
             />
           </div>
           <div class="sign-up-frame">
-            <label>Phone *</label>
+            <label>Phone :</label>
             <input
               type="text"
               name="memberPhone"
@@ -44,7 +42,7 @@
         </div>
         <div class="sign-input-frame" style="justify-content: space-between">
           <div class="sign-up-frame">
-            <label>Password *</label>
+            <label>Password :</label>
             <input
               type="password"
               name="memberPassword"
@@ -54,7 +52,7 @@
             />
           </div>
           <div class="sign-up-frame">
-            <label>Repeat password *</label>
+            <label>Confirm password :</label>
             <input
               type="password"
               name="confirmPassword"
@@ -90,9 +88,9 @@
                 />
               </div>
               <p class="thumbnail-desc">
-                Please upload restaurant image.<br />
-                Attention only:.jpg, .jpeg, or .png. <br />
-                formats allowed!
+                Please upload restaurant image if any.<br />
+                Note! only (.jpg, .jpeg, or .png) <br />
+                formats are allowed!
               </p>
             </div>
           </div>
@@ -109,5 +107,4 @@
 
   <script type="text/javascript" src="/js/signup.js"></script>
 </body>
-
-<%- include('includes/footer') %>
+<%- include("includes/footer.ejs") %>
