@@ -11,7 +11,6 @@ const orderController: T = {};
 orderController.createOrder = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("createOrder");
-    // member request ichida keladi. malumotlar request body qismida keladi
     const result = await orderService.createOrder(req.member, req.body);
 
     res.status(HttpCode.CREATED).json({ result: result });
@@ -26,7 +25,6 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("getMyOrders");
 
-    // destructuring = yoyib olish
     const { page, limit, orderStatus } = req.query;
 
     const inquiry: OrderInquiry = {

@@ -12,13 +12,11 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 
-// memberService nomli instance oldik MemberService class modelidan.
 const memberService = new MemberService();
 const authService = new AuthService();
 
 const memberController: T = {};
 
-// call part
 memberController.getRestaurant = async (req: Request, res: Response) => {
   try {
     console.log("getRestaurant");
@@ -58,7 +56,6 @@ memberController.signup = async (req: Request, res: Response) => {
   }
 };
 
-// calling the login method and passing two arguments req,res
 memberController.login = async (req: Request, res: Response) => {
   try {
     console.log("login");
@@ -161,8 +158,6 @@ memberController.verifyAuth = async (
   }
 };
 
-// Login bolmagan user bolsa ham keyingi mantiqqa otkazb yuboradi
-// Agar login bolgan user bolsa uni malumotlarini request ga biriktib beradi.
 memberController.retrieveAuth = async (
   req: ExtendedRequest,
   res: Response,
@@ -177,7 +172,6 @@ memberController.retrieveAuth = async (
     console.log("Error, retrieveAuth:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
 
-    /** Hatolik hosil bolsa ham uni log qilgan holda keyingi bosqichga otish **/
     next();
   }
 };

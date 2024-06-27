@@ -42,10 +42,8 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("getProduct");
 
-    // kirib kelayotgan aynan qaysi productni topishlik
     const { id } = req.params;
 
-    // qaysi murojatchi productni kormoqchi
     const memberId = req.member?._id ?? null,
       result = await productService.getProduct(memberId, id);
 
@@ -58,13 +56,11 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
 };
 
 /** SSR**/
-// call part of getAllProducts Method:
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
     const data = await productService.getAllProducts();
 
-    // renderdagi ikkinchi argument qanday nom bilan yuvorish
     res.render("products", { products: data });
   } catch (err) {
     console.log("Error, getAllProducts", err);
@@ -81,14 +77,11 @@ productController.createNewProduct = async (
     console.log("createNewProduct");
     console.log("req.boyd:", req.body);
 
-    // qabul qilingan arrayni ichidan har bir rasmni pathini olish
     if (!req.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
-    // productInput kelayotgan request uchun interface
     const data: ProductInput = req.body;
 
-    // yuklanayotgan fileni pathini yuklayabmiz
     data.productImages = req.files?.map((ele) => {
       return ele.path;
     });

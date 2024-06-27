@@ -24,26 +24,16 @@ class ProductService {
 
   /** SPA**/
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
-    // match object created and its type is set to (T)
-    // match bu faqat process da bolgan productlarni topib berishi
     const match: T = { productStatus: ProductStatus.PROCESS };
 
-    // productCollection inquiry da hosil bolsa unday holda matchni ichida productCollection
-    //inquiryni ichida kelayotkan productCollectionga teng bolsin
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
 
-    // regex orqali searchni develop qilish
-    // inquiry ichida search bolsa productName dan kiritilgan textni izlash mantigi
-    // inquiry dan kelayotgan searchni malumotni olib berishini takidlab flagni "i" qilib belgilaymiz
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     }
 
-    // sort object productPrice bulsa eng arzondan boshlab tepaga harakatlanadi
-    // aksxolda tepadan pastga qarab yuradi.
     const sort: T =
-      // [] dynamic keyni hosil qilib beradi
       inquiry.order === "productPrice"
         ? { [inquiry.order]: 1 } // [] bularsiz berilgan mantiq string da bob qoladi
         : { [inquiry.order]: -1 };
@@ -114,7 +104,7 @@ class ProductService {
 
     return result;
   }
-  // definition part of createNewProduct schema model
+
   public async createNewProduct(input: ProductInput): Promise<Product> {
     try {
       return await this.productModel.create(input);
