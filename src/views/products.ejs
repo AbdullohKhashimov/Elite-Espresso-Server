@@ -23,6 +23,7 @@
         </li>
       </ul>
     </div>
+    
 
     <div class="restaurant-menu-frame">
       <div class="board">
@@ -49,12 +50,10 @@
               <td><%= value.productName %></td>
               <td><%= value.productCollection %></td>
               <td>
-                <%= value.productCollection === "SALAD" || value.productCollection === "CAKE" ? value.productSize :
-    
-    (value.productCollection === "COFFEE" || value.productCollection === "SMOOTHIE" ?
-        value.productVolume :
-        '') %>
-                
+               <%= 
+               value.productCollection === "SALAD" || value.productCollection === "CAKE" ? value.productSize :
+               (value.productCollection === "COFFEE" || value.productCollection === "SMOOTHIE" ? value.productVolume : "")
+               %>
                 
               </td>
              

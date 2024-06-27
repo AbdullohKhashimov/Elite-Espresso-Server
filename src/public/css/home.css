@@ -6,25 +6,13 @@
   color: #fff;
 }
 
-@keyframes blackFade {
-  0% {
-    background-color: #808080; /* Grayish background color */
-  }
-  50% {
-    background-color: #000000; /* Black */
-  }
-  100% {
-    background-color: #808080; /* Grayish background color */
-  }
-}
-
 .home-container a {
   text-decoration: none;
   color: #000000;
 }
 
 .home-container .nav-item a {
-  color: #e3c08d;
+  color: #343434;
 }
 
 .home-container .nav-item a.disabled {
@@ -73,7 +61,6 @@
 .dots-wrapper {
   transform: translateZ(0);
 }
-
 .easing-visualizer .bar {
   width: 10px;
   height: 10px;
