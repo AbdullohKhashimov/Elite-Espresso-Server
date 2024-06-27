@@ -1,6 +1,5 @@
 import { ObjectId } from "mongoose";
 import {
-  CakeSize,
   ProductCollection,
   ProductSize,
   ProductStatus,
@@ -14,7 +13,7 @@ export interface Product {
   productPrice: number;
   productLeftCount: number;
   productSize: ProductSize;
-  cakeSize: CakeSize;
+
   productVolume: number;
   productDesc?: string;
   productImages: string[];
@@ -38,7 +37,7 @@ export interface ProductInput {
   productPrice: number;
   productLeftCount: number;
   productSize?: ProductSize;
-  cakeSize?: CakeSize;
+
   productVolume?: number;
   productDesc?: string;
   productImages?: string[];
@@ -53,7 +52,7 @@ export interface ProductUpdateInput {
   productPrice?: number;
   productLeftCount?: number;
   productSize?: ProductSize;
-  cakeSize?: CakeSize;
+
   productVolume?: number;
   productDesc?: string;
   productImages?: string[];

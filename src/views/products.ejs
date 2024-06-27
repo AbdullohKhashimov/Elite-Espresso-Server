@@ -49,11 +49,11 @@
               <td><%= value.productName %></td>
               <td><%= value.productCollection %></td>
               <td>
-                <%= value.productCollection === "SALAD" ? value.productSize :
-    (value.productCollection === "CAKE" ? value.cakeSize :
+                <%= value.productCollection === "SALAD" || value.productCollection === "CAKE" ? value.productSize :
+    
     (value.productCollection === "COFFEE" || value.productCollection === "SMOOTHIE" ?
         value.productVolume :
-        '')) %>
+        '') %>
                 
                 
               </td>
@@ -150,14 +150,7 @@
               </select>
             </div>
 
-             <div class="half-input" id="cake-size" style="display: none">
-              <label>Cake Size</label>
-              <select class="cake-size" name="cakeSize">
-                <option value="PIECE" selected>Piece</option>
-                <option value="WHOLE">Whole Cake</option>
-              </select>
-            </div>
-
+          
             <div class="half-input" id="product-volume" style="display: none">
               <label>Drinks Volume</label>
               <select class="product-volume" name="productVolume">

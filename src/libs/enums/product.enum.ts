@@ -4,11 +4,6 @@ export enum ProductSize {
   LARGE = "LARGE",
 }
 
-export enum CakeSize {
-  PIECE = "PIECE",
-  WHOLE = "WHOLE",
-}
-
 export enum ProductVolume {
   ZERO_POINT_TWO = 0.2,
   ZERO_POINT_THREE = 0.3,

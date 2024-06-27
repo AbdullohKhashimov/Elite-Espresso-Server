@@ -7,14 +7,8 @@ $(function () {
     if (selectedValue === "COFFEE" || selectedValue === "SMOOTHIE") {
       $("#product-volume").show();
       $("#product-collection").hide();
-      $("#cake-size").hide();
-    } else if (selectedValue === "CAKE") {
-      $("#cake-size").show();
-      $("#product-volume").hide();
-      $("#product-collection").hide();
     } else {
       $("#product-volume").hide();
-      $("#cake-size").hide();
       $("#product-collection").show();
     }
   });
@@ -63,8 +57,7 @@ function validateForm() {
     productLeftCount = $(".product-left-count").val(),
     productCollection = $(".product-collection").val(),
     productDesc = $(".product-desc").val(),
-    productStatus = $(".product-status").val(),
-    cakeSize = $(".cake-size").val();
+    productStatus = $(".product-status").val();
 
   if (
     productName === "" ||
@@ -72,8 +65,7 @@ function validateForm() {
     productLeftCount === "" ||
     productCollection === "" ||
     productDesc === "" ||
-    productStatus === "" ||
-    cakeSize === ""
+    productStatus === ""
   ) {
     alert("Please insert all required fields!");
     return false;
