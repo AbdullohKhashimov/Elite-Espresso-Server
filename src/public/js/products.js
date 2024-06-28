@@ -58,6 +58,7 @@ function validateForm() {
     productCollection = $(".product-collection").val(),
     productDesc = $(".product-desc").val(),
     productStatus = $(".product-status").val();
+  
 
   if (
     productName === "" ||
