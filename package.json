@@ -1,7 +1,7 @@
 {
-  "name": "burak",
+  "name": "elite-espresso",
   "version": "1.0.0",
-  "description": "This is Burak project backend",
+  "description": "This Elite Espresso server side",
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
@@ -10,7 +10,7 @@
     "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MIT",
+  "author": "TONY",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
