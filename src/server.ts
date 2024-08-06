@@ -21,3 +21,15 @@ mongoose
   .catch((err) => {
     console.log("Error on connection MongoDB", err);
   });
+
+/*
+  PM2 Commands!
+
+  pm2 ls 
+  pm2 start dist/server.js --name=ELITE
+  pm2 start "npm run start:prod"  --name=ELITE
+  pm2 stop id 
+  pm2 delete id
+  pm2 restart
+  pm2 monit -> monitoring command
+*/
