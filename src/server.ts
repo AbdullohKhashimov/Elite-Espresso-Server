@@ -33,4 +33,13 @@ mongoose
   pm2 restart
   pm2 monit -> monitoring command
   pm2 logs -> by numbers pm2 logs 1
+
+
+  SUDO commands 
+
+  sudo ufw allow ssh 
+
+
+  to remove a cached file in github 
+  git rm -r --cached (file name) (.env)
 */
