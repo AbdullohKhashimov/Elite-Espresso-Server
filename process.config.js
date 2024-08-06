@@ -12,7 +12,7 @@ module.exports = {
         NODE_ENV: "development",
       },
 
-      instances: "max",
+      instances: 1,
       exec_mode: "cluster",
     },
   ],
