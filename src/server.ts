@@ -32,4 +32,5 @@ mongoose
   pm2 delete id
   pm2 restart
   pm2 monit -> monitoring command
+  pm2 logs -> by numbers pm2 logs 1
 */
